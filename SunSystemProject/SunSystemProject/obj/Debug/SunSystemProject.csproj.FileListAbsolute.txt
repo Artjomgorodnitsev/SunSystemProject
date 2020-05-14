@@ -1,0 +1,12 @@
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\bin\Debug\SunSystemProject.exe.config
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\bin\Debug\SunSystemProject.exe
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\bin\Debug\SunSystemProject.pdb
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.csprojAssemblyReference.cache
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.Form1.resources
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.FormDefendGame.resources
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.Properties.Resources.resources
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.csproj.GenerateResource.cache
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.exe
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.pdb
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.FormResult.resources
+D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.FormTest.resources
