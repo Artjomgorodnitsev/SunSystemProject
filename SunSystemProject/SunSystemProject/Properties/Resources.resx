@@ -121,12 +121,6 @@
   <data name="Earth" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Earth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sunMain" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sunMain1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="testIamge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\testIamge.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="planetDefend" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\planetDefend.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,5 +129,14 @@
   </data>
   <data name="stars" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stars.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sunMain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sunMain1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="testIamge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\testIamge.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="s1200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\s1200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

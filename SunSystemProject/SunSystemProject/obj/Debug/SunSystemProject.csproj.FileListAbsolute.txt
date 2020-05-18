@@ -10,3 +10,17 @@ D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProje
 D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.pdb
 D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.FormResult.resources
 D:\Программирование\C#\SunSystem\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.FormTest.resources
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\bin\Debug\SunSystemProject.exe.config
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\bin\Debug\SunSystemProject.exe
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\bin\Debug\SunSystemProject.pdb
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.csprojAssemblyReference.cache
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.Form1.resources
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.FormDefendGame.resources
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.FormResult.resources
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.FormTest.resources
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.Properties.Resources.resources
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.csproj.GenerateResource.cache
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.exe
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.pdb
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\bin\Debug\Database\DatabaseSunSystem.mdf
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\bin\Debug\Database\DatabaseSunSystem_log.ldf
