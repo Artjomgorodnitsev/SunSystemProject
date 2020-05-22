@@ -109,6 +109,9 @@
     <EmbeddedResource Include="FormDefendGame.resx">
       <DependentUpon>FormDefendGame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPlanetSpeed.resx">
+      <DependentUpon>FormPlanetSpeed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormResult.resx">
       <DependentUpon>FormResult.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +167,7 @@
     <None Include="Resources\Earth.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\sunSystemForm1Main.jpg" />
     <None Include="Resources\stars.jpg" />
     <None Include="Resources\testIamge.gif" />
     <None Include="Resources\planetDefend.gif" />
@@ -174,7 +178,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DatabaseSunSystem.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\kosmos.jpg" />
+    <None Include="Resources\planetSpeedMain.jpg" />
+    <None Include="Resources\planetSpeedMain2.jpg" />
+    <None Include="Resources\Mars.png" />
+    <None Include="Resources\planetSpeedMain2rus.jpg" />
+    <Content Include="Resources\planetSpeedSunSystemCutRus.jpg" />
+    <None Include="Resources\planetSpeedSunSystemCutRus1.jpg" />
     <Content Include="Resources\s1200.png" />
+    <None Include="Resources\ss.jpg" />
     <Content Include="Resources\sunMain.gif" />
     <None Include="Resources\sunMain1.gif" />
     <Content Include="Resources\sunSystemForm1.jpg" />

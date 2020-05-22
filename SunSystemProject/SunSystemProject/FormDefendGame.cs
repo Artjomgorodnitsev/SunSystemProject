@@ -21,5 +21,10 @@ namespace SunSystemProject
         {
 
         }
+
+        private void buttonExitForm1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
