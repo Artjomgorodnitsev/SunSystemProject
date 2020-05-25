@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace SunSystemProject
 {
     public partial class Form1 : Form
     {
+        SqlConnection sqlConnection;
         public Form1()
         {
             InitializeComponent();
@@ -68,9 +70,36 @@ namespace SunSystemProject
             formresult.Show();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aleks\source\repos\SunSystemProject-master\SunSystemProject\SunSystemProject\Database\DatabaseSunSystem.mdf;Integrated Security=True";
 
+            sqlConnection = new SqlConnection(connectionString);
+
+            await sqlConnection.OpenAsync();
+
+            SqlDataReader sqlReader = null;
+
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records]", sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
+
+                while (await sqlReader.ReadAsync())
+                {
+                    label29.Text = Convert.ToString(sqlReader["Name"]);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -201,6 +230,12 @@ namespace SunSystemProject
         private void label27_Click(object sender, EventArgs e)
         {
             label27.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            name name = new name();
+            name.Show();
         }
     }
 }

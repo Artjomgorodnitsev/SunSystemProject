@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPlanetSpeed));
             this.buttonGameStart = new System.Windows.Forms.Button();
             this.buttonExitForm1 = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labeltime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,6 +86,21 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Таймер:";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // labeltime
+            // 
+            this.labeltime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labeltime.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labeltime.Location = new System.Drawing.Point(118, 583);
+            this.labeltime.Name = "labeltime";
+            this.labeltime.Size = new System.Drawing.Size(100, 23);
+            this.labeltime.TabIndex = 8;
+            this.labeltime.Text = "0 : 0 : 0";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -99,6 +117,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1296, 621);
+            this.Controls.Add(this.labeltime);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonExitForm1);
             this.Controls.Add(this.buttonGameStart);
@@ -106,6 +125,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPlanetSpeed";
             this.Text = "Расставление планет на скорость";
+            this.Load += new System.EventHandler(this.FormPlanetSpeed_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -114,11 +134,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonGameStart;
         private System.Windows.Forms.Button buttonExitForm1;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labeltime;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
