@@ -65,14 +65,221 @@ namespace SunSystemProject
                 sqlConnection.Close();
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
+        private async void label3_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Level] DESC", sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
 
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]) + "" + Convert.ToString(sqlReader["Level"]) + "                " + Convert.ToString(sqlReader["Points"]) + "                 " + Convert.ToString(sqlReader["CorrectAnswer"]) + "                 " + Convert.ToString(sqlReader["IncorrectAnswer"]) + "             " + Convert.ToString(sqlReader["Date"]) + "            " + Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
         }
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private async void label4_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Points] DESC", sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
 
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]) + "" + Convert.ToString(sqlReader["Level"]) + "                " + Convert.ToString(sqlReader["Points"]) + "                 " + Convert.ToString(sqlReader["CorrectAnswer"]) + "                 " + Convert.ToString(sqlReader["IncorrectAnswer"]) + "             " + Convert.ToString(sqlReader["Date"]) + "            " + Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+        }
+
+        private async void label5_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[CorrectAnswer] DESC", sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
+
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]) + "" + Convert.ToString(sqlReader["Level"]) + "                " + Convert.ToString(sqlReader["Points"]) + "                 " + Convert.ToString(sqlReader["CorrectAnswer"]) + "                 " + Convert.ToString(sqlReader["IncorrectAnswer"]) + "             " + Convert.ToString(sqlReader["Date"]) + "            " + Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+        }
+
+        private async void label6_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[IncorrectAnswer] DESC", sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
+
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]) + "" + Convert.ToString(sqlReader["Level"]) + "                " + Convert.ToString(sqlReader["Points"]) + "                 " + Convert.ToString(sqlReader["CorrectAnswer"]) + "                 " + Convert.ToString(sqlReader["IncorrectAnswer"]) + "             " + Convert.ToString(sqlReader["Date"]) + "            " + Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+        }
+
+        private async void label7_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Date] DESC", sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
+
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]) + "" + Convert.ToString(sqlReader["Level"]) + "                " + Convert.ToString(sqlReader["Points"]) + "                 " + Convert.ToString(sqlReader["CorrectAnswer"]) + "                 " + Convert.ToString(sqlReader["IncorrectAnswer"]) + "             " + Convert.ToString(sqlReader["Date"]) + "            " + Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+        }
+
+        private async void label8_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Time]", sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
+
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]) + "" + Convert.ToString(sqlReader["Level"]) + "                " + Convert.ToString(sqlReader["Points"]) + "                 " + Convert.ToString(sqlReader["CorrectAnswer"]) + "                 " + Convert.ToString(sqlReader["IncorrectAnswer"]) + "             " + Convert.ToString(sqlReader["Date"]) + "            " + Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+        }
+
+        private async void label2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Name]", sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
+
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]) + "" + Convert.ToString(sqlReader["Level"]) + "                " + Convert.ToString(sqlReader["Points"]) + "                 " + Convert.ToString(sqlReader["CorrectAnswer"]) + "                 " + Convert.ToString(sqlReader["IncorrectAnswer"]) + "             " + Convert.ToString(sqlReader["Date"]) + "            " + Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            button1.Visible = true;
+            textBox1.Visible = true;
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records] WHERE[Name]=@Name", sqlConnection);
+            command.Parameters.AddWithValue("Name", textBox1.Text);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
+
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]) + "" + Convert.ToString(sqlReader["Level"]) + "                " + Convert.ToString(sqlReader["Points"]) + "                 " + Convert.ToString(sqlReader["CorrectAnswer"]) + "                 " + Convert.ToString(sqlReader["IncorrectAnswer"]) + "             " + Convert.ToString(sqlReader["Date"]) + "            " + Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message.ToString(), ex.Source.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                button1.Visible = false;
+                textBox1.Visible = false;
+                if (sqlReader != null)
+                    sqlReader.Close();
+            }
         }
     }
 }

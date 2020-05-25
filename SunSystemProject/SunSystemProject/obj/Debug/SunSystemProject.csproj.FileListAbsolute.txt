@@ -105,3 +105,5 @@ C:\Users\Aleks\source\repos\SunSystemProject-master\SunSystemProject\SunSystemPr
 C:\Users\Aleks\source\repos\SunSystemProject-master\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.exe
 C:\Users\Aleks\source\repos\SunSystemProject-master\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.pdb
 C:\Users\Aleks\source\repos\SunSystemProject-master\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.name.resources
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.FormPlanetSpeed.resources
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.name.resources
