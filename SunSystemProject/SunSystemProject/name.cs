@@ -27,7 +27,7 @@ namespace SunSystemProject
 
         private async void name_Load(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aleks\source\repos\SunSystemProject-master\SunSystemProject\SunSystemProject\Database\DatabaseSunSystem.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\Database\DatabaseSunSystem.mdf;Integrated Security=True";
 
             sqlConnection = new SqlConnection(connectionString);
 
@@ -47,8 +47,6 @@ namespace SunSystemProject
                 command.Parameters.AddWithValue("Name", textBox1.Text);
 
                 await command.ExecuteNonQueryAsync();
-                Form1 Form1 = new Form1();
-                Form1.Show();
                 this.Close();
             }
             else

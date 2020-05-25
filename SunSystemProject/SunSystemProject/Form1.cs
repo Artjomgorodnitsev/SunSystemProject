@@ -72,7 +72,7 @@ namespace SunSystemProject
 
         private async void Form1_Load(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aleks\source\repos\SunSystemProject-master\SunSystemProject\SunSystemProject\Database\DatabaseSunSystem.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\Database\DatabaseSunSystem.mdf;Integrated Security=True";
 
             sqlConnection = new SqlConnection(connectionString);
 
@@ -236,6 +236,22 @@ namespace SunSystemProject
         {
             name name = new name();
             name.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_CursorChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

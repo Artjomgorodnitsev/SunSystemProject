@@ -32,13 +32,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.buttonExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonResult = new System.Windows.Forms.Button();
+            this.buttonTest = new System.Windows.Forms.Button();
             this.labelTest = new System.Windows.Forms.Label();
+            this.buttonSpeed = new System.Windows.Forms.Button();
+            this.buttonDef = new System.Windows.Forms.Button();
             this.labelGames = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,10 +69,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonTest = new System.Windows.Forms.Button();
-            this.buttonSpeed = new System.Windows.Forms.Button();
-            this.buttonDef = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,9 +90,9 @@
             this.groupBox2.Controls.Add(this.buttonDef);
             this.groupBox2.Controls.Add(this.labelGames);
             this.groupBox2.Location = new System.Drawing.Point(1125, -1);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(523, 745);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -102,7 +102,7 @@
             this.button1.BackColor = System.Drawing.Color.PeachPuff;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(15, 75);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 32);
             this.button1.TabIndex = 12;
@@ -117,10 +117,19 @@
             this.panel1.Controls.Add(this.label29);
             this.panel1.Controls.Add(this.label28);
             this.panel1.Location = new System.Drawing.Point(15, 17);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(490, 50);
             this.panel1.TabIndex = 11;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label29.Location = new System.Drawing.Point(149, 18);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(0, 19);
+            this.label29.TabIndex = 27;
             // 
             // label28
             // 
@@ -140,7 +149,7 @@
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonExit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonExit.Location = new System.Drawing.Point(404, 683);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(96, 44);
             this.buttonExit.TabIndex = 9;
@@ -185,13 +194,25 @@
             this.buttonResult.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonResult.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonResult.Location = new System.Drawing.Point(33, 683);
-            this.buttonResult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonResult.Margin = new System.Windows.Forms.Padding(4);
             this.buttonResult.Name = "buttonResult";
             this.buttonResult.Size = new System.Drawing.Size(135, 44);
             this.buttonResult.TabIndex = 5;
             this.buttonResult.Text = "Рекорды";
             this.buttonResult.UseVisualStyleBackColor = false;
             this.buttonResult.Click += new System.EventHandler(this.buttonResult_Click);
+            // 
+            // buttonTest
+            // 
+            this.buttonTest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonTest.Image = global::SunSystemProject.Properties.Resources.testIamge;
+            this.buttonTest.Location = new System.Drawing.Point(163, 439);
+            this.buttonTest.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonTest.Name = "buttonTest";
+            this.buttonTest.Size = new System.Drawing.Size(228, 126);
+            this.buttonTest.TabIndex = 4;
+            this.buttonTest.UseVisualStyleBackColor = true;
+            this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
             // 
             // labelTest
             // 
@@ -203,6 +224,37 @@
             this.labelTest.Size = new System.Drawing.Size(114, 49);
             this.labelTest.TabIndex = 3;
             this.labelTest.Text = "Тест";
+            // 
+            // buttonSpeed
+            // 
+            this.buttonSpeed.BackColor = System.Drawing.Color.Tomato;
+            this.buttonSpeed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSpeed.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSpeed.ForeColor = System.Drawing.Color.Red;
+            this.buttonSpeed.Image = global::SunSystemProject.Properties.Resources.sunMain;
+            this.buttonSpeed.Location = new System.Drawing.Point(271, 166);
+            this.buttonSpeed.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSpeed.Name = "buttonSpeed";
+            this.buttonSpeed.Size = new System.Drawing.Size(228, 153);
+            this.buttonSpeed.TabIndex = 2;
+            this.buttonSpeed.UseVisualStyleBackColor = false;
+            this.buttonSpeed.Click += new System.EventHandler(this.buttonSpeed_Click);
+            // 
+            // buttonDef
+            // 
+            this.buttonDef.BackColor = System.Drawing.Color.NavajoWhite;
+            this.buttonDef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonDef.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDef.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDef.ForeColor = System.Drawing.Color.Red;
+            this.buttonDef.Image = global::SunSystemProject.Properties.Resources.planetDefend;
+            this.buttonDef.Location = new System.Drawing.Point(32, 166);
+            this.buttonDef.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDef.Name = "buttonDef";
+            this.buttonDef.Size = new System.Drawing.Size(228, 153);
+            this.buttonDef.TabIndex = 1;
+            this.buttonDef.UseVisualStyleBackColor = false;
+            this.buttonDef.Click += new System.EventHandler(this.buttonDef_Click);
             // 
             // labelGames
             // 
@@ -505,58 +557,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // buttonTest
-            // 
-            this.buttonTest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonTest.Image = global::SunSystemProject.Properties.Resources.testIamge;
-            this.buttonTest.Location = new System.Drawing.Point(163, 439);
-            this.buttonTest.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonTest.Name = "buttonTest";
-            this.buttonTest.Size = new System.Drawing.Size(228, 126);
-            this.buttonTest.TabIndex = 4;
-            this.buttonTest.UseVisualStyleBackColor = true;
-            this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
-            // 
-            // buttonSpeed
-            // 
-            this.buttonSpeed.BackColor = System.Drawing.Color.Tomato;
-            this.buttonSpeed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSpeed.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSpeed.ForeColor = System.Drawing.Color.Red;
-            this.buttonSpeed.Image = global::SunSystemProject.Properties.Resources.sunMain;
-            this.buttonSpeed.Location = new System.Drawing.Point(271, 166);
-            this.buttonSpeed.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonSpeed.Name = "buttonSpeed";
-            this.buttonSpeed.Size = new System.Drawing.Size(228, 153);
-            this.buttonSpeed.TabIndex = 2;
-            this.buttonSpeed.UseVisualStyleBackColor = false;
-            this.buttonSpeed.Click += new System.EventHandler(this.buttonSpeed_Click);
-            // 
-            // buttonDef
-            // 
-            this.buttonDef.BackColor = System.Drawing.Color.NavajoWhite;
-            this.buttonDef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonDef.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDef.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDef.ForeColor = System.Drawing.Color.Red;
-            this.buttonDef.Image = global::SunSystemProject.Properties.Resources.planetDefend;
-            this.buttonDef.Location = new System.Drawing.Point(32, 166);
-            this.buttonDef.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonDef.Name = "buttonDef";
-            this.buttonDef.Size = new System.Drawing.Size(228, 153);
-            this.buttonDef.TabIndex = 1;
-            this.buttonDef.UseVisualStyleBackColor = false;
-            this.buttonDef.Click += new System.EventHandler(this.buttonDef_Click);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label29.Location = new System.Drawing.Point(149, 18);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(0, 19);
-            this.label29.TabIndex = 27;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
@@ -591,10 +592,12 @@
             this.Controls.Add(this.groupBox2);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Солнечная Система";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.CursorChanged += new System.EventHandler(this.Form1_CursorChanged);
+            this.Click += new System.EventHandler(this.Form1_Click);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);

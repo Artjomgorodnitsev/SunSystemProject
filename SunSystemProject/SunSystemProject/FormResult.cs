@@ -21,7 +21,7 @@ namespace SunSystemProject
 
         private async void FormResult_Load(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aleks\source\repos\SunSystemProject-master\SunSystemProject\SunSystemProject\Database\DatabaseSunSystem.mdf;Integrated Security=True";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\Database\DatabaseSunSystem.mdf;Integrated Security=True";
 
             sqlConnection = new SqlConnection(connectionString);
 
