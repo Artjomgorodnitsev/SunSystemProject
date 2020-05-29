@@ -93,17 +93,18 @@
             // 
             // labeltime
             // 
+            this.labeltime.AutoSize = true;
             this.labeltime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labeltime.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labeltime.Location = new System.Drawing.Point(118, 583);
             this.labeltime.Name = "labeltime";
-            this.labeltime.Size = new System.Drawing.Size(100, 23);
+            this.labeltime.Size = new System.Drawing.Size(60, 19);
             this.labeltime.TabIndex = 8;
             this.labeltime.Text = "0 : 0 : 0";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::SunSystemProject.Properties.Resources.planetSpeedMain2rus;
             this.pictureBox1.Location = new System.Drawing.Point(13, 13);
             this.pictureBox1.Name = "pictureBox1";
@@ -116,6 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1296, 621);
             this.Controls.Add(this.labeltime);
             this.Controls.Add(this.label1);

@@ -25,7 +25,7 @@ namespace SunSystemProject
 
             sqlConnection = new SqlConnection(connectionString);
 
-            await sqlConnection.OpenAsync();
+            //await sqlConnection.OpenAsync();
 
             SqlDataReader sqlReader = null;
 

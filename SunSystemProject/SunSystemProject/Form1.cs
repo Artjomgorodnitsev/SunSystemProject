@@ -42,8 +42,83 @@ namespace SunSystemProject
             label26.Parent = pictureBox1;
             label27.Parent = pictureBox1;
 
+            label4.DoubleClick += Label4_DoubleClick;
+            label5.DoubleClick += Label5_DoubleClick;
+            label6.DoubleClick += Label6_DoubleClick;
+            label7.DoubleClick += Label7_DoubleClick;
+            label8.DoubleClick += Label8_DoubleClick;
+            label9.DoubleClick += Label9_DoubleClick;
+            label10.DoubleClick += Label10_DoubleClick;
+            label11.DoubleClick += Label11_DoubleClick;
+            label12.DoubleClick += Label12_DoubleClick;
+            label13.DoubleClick += Label13_DoubleClick;
+            label14.DoubleClick += Label14_DoubleClick;
+            label15.DoubleClick += Label15_DoubleClick;
 
 
+
+        }
+
+        
+
+        private void Label15_DoubleClick(object sender, EventArgs e)
+        {
+            label27.Visible = false;
+        }
+
+        private void Label14_DoubleClick(object sender, EventArgs e)
+        {
+            label26.Visible = false;
+        }
+
+        private void Label13_DoubleClick(object sender, EventArgs e)
+        {
+            label25.Visible = false;
+        }
+
+        private void Label12_DoubleClick(object sender, EventArgs e)
+        {
+            label24.Visible = false;
+        }
+
+        private void Label11_DoubleClick(object sender, EventArgs e)
+        {
+            label23.Visible = false;
+        }
+
+        private void Label10_DoubleClick(object sender, EventArgs e)
+        {
+            label22.Visible = false;
+        }
+
+        private void Label9_DoubleClick(object sender, EventArgs e)
+        {
+            label21.Visible = false;
+        }
+
+        private void Label8_DoubleClick(object sender, EventArgs e)
+        {
+            label20.Visible = false;
+        }
+
+        private void Label7_DoubleClick(object sender, EventArgs e)
+        {
+            label19.Visible = false;
+        }
+
+        private void Label6_DoubleClick(object sender, EventArgs e)
+        {
+            label18.Visible = false;
+        }
+
+        private void Label5_DoubleClick(object sender, EventArgs e)
+        {
+            label17.Visible = false;
+        }
+
+        private void Label4_DoubleClick(object sender, EventArgs e)
+        {
+            label16.Visible = false;
         }
 
         private void buttonDef_Click(object sender, EventArgs e)
@@ -76,7 +151,7 @@ namespace SunSystemProject
 
             sqlConnection = new SqlConnection(connectionString);
 
-            await sqlConnection.OpenAsync();
+            //await sqlConnection.OpenAsync();
 
             SqlDataReader sqlReader = null;
 
@@ -119,7 +194,7 @@ namespace SunSystemProject
 
         private void label16_Click(object sender, EventArgs e)
         {
-            label16.Visible = false;
+            
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -129,7 +204,7 @@ namespace SunSystemProject
 
         private void label17_Click(object sender, EventArgs e)
         {
-            label17.Visible = false;
+            
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -139,7 +214,7 @@ namespace SunSystemProject
 
         private void label18_Click(object sender, EventArgs e)
         {
-            label18.Visible = false;
+            
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -149,7 +224,7 @@ namespace SunSystemProject
 
         private void label19_Click(object sender, EventArgs e)
         {
-            label19.Visible = false;
+            
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -159,7 +234,7 @@ namespace SunSystemProject
 
         private void label20_Click(object sender, EventArgs e)
         {
-            label20.Visible = false;
+            
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -169,7 +244,7 @@ namespace SunSystemProject
 
         private void label21_Click(object sender, EventArgs e)
         {
-            label21.Visible = false;
+            
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -179,7 +254,7 @@ namespace SunSystemProject
 
         private void label22_Click(object sender, EventArgs e)
         {
-            label22.Visible = false;
+            
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -189,7 +264,7 @@ namespace SunSystemProject
 
         private void label23_Click(object sender, EventArgs e)
         {
-            label23.Visible = false;
+            
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -199,7 +274,7 @@ namespace SunSystemProject
 
         private void label24_Click(object sender, EventArgs e)
         {
-            label24.Visible = false;
+            
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -209,7 +284,7 @@ namespace SunSystemProject
 
         private void label25_Click(object sender, EventArgs e)
         {
-            label25.Visible = false;
+            
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -219,7 +294,7 @@ namespace SunSystemProject
 
         private void label26_Click(object sender, EventArgs e)
         {
-            label26.Visible = false;
+            
         }
 
         private void label15_Click(object sender, EventArgs e)
@@ -229,7 +304,7 @@ namespace SunSystemProject
 
         private void label27_Click(object sender, EventArgs e)
         {
-            label27.Visible = false;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

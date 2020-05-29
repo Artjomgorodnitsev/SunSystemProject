@@ -7,13 +7,13 @@ namespace SunSystemProject
     public partial class FormPlanetSpeed : Form
     {
         private int m, s, ms;
-        bool SquareleClicked, SquareleClicked2, DoorClicked, DoorClicked2, HoodClicked, RoofClicked, TrunkClicked = false;
+        /*bool SquareleClicked, SquareleClicked2, DoorClicked, DoorClicked2, HoodClicked, RoofClicked, TrunkClicked = false;
         bool StatusDone, StatusDone2, StatusDone3, StatusDone4, StatusDone5, StatusDone6, StatusDone7 = false;
         int SquareX, SquareY, SquareX2, SquareY2, DoorX, DoorY, DoorX2, DoorY2, HoodX, HoodY, RoofX, RoofY, TrunkX, TrunkY = 0;
 
         int X, Y, X2, Y2, X3, Y3, X4, Y4, X5, Y5, X6, Y6, X7, Y7;
         int LastClicked = 0;
-        Image img, img2, img3, img4, img5, img6;
+        Image img, img2, img3, img4, img5, img6;*/
 
         /*Rectangle square = new Rectangle(380, 10, 150, 150);
         Rectangle square2 = new Rectangle(380, 10, 150, 150);
@@ -23,13 +23,13 @@ namespace SunSystemProject
         Rectangle roof = new Rectangle(380, 10, 570, 150);
         Rectangle trunk = new Rectangle(50, 10, 265, 205);*/
 
-        Rectangle square = new Rectangle(200, 10, 50, 50);
-        Rectangle square2 = new Rectangle(500, 10, 50, 50);
-        Rectangle door = new Rectangle(700, 10, 67, 48);
-        Rectangle door2 = new Rectangle(600, 10, 67, 48);
-        Rectangle hood = new Rectangle(300, 10, 90, 63);
-        Rectangle roof = new Rectangle(800, 10, 190, 50);
-        Rectangle trunk = new Rectangle(50, 10, 88, 68);
+        //Rectangle square = new Rectangle(200, 10, 50, 50);
+        //Rectangle square2 = new Rectangle(500, 10, 50, 50);
+        //Rectangle door = new Rectangle(700, 10, 67, 48);
+        //Rectangle door2 = new Rectangle(600, 10, 67, 48);
+        //Rectangle hood = new Rectangle(300, 10, 90, 63);
+        //Rectangle roof = new Rectangle(800, 10, 190, 50);
+        //Rectangle trunk = new Rectangle(50, 10, 88, 68);
         public FormPlanetSpeed()
         {
             InitializeComponent();
