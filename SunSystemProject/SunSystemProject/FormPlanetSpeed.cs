@@ -7,383 +7,423 @@ namespace SunSystemProject
     public partial class FormPlanetSpeed : Form
     {
         private int m, s, ms;
-        /*bool SquareleClicked, SquareleClicked2, DoorClicked, DoorClicked2, HoodClicked, RoofClicked, TrunkClicked = false;
-        bool StatusDone, StatusDone2, StatusDone3, StatusDone4, StatusDone5, StatusDone6, StatusDone7 = false;
-        int SquareX, SquareY, SquareX2, SquareY2, DoorX, DoorY, DoorX2, DoorY2, HoodX, HoodY, RoofX, RoofY, TrunkX, TrunkY = 0;
+        bool EarthClicked, MercuryClicked, VeneraClicked, MarsClicked, JupiterClicked, SaturnClicked, UrankClicked, NeptunClicked, PlutonClicked = false;
+        bool StatusDone, StatusDone2, StatusDone3, StatusDone4, StatusDone5, StatusDone6, StatusDone7, StatusDone8, StatusDone9 = false;
+        int EarthX, EarthY, MercuryX, MercuryY, VeneraX, VeneraY, MarsX, MarsY, JupiterX, JupiterY, SaturnX, SaturnY, UranX, UranY, NeptunX, NeptunY, PlutonX, PlutonY = 0;
 
-        int X, Y, X2, Y2, X3, Y3, X4, Y4, X5, Y5, X6, Y6, X7, Y7;
+        
+
+        int X, Y, X2, Y2, X3, Y3, X4, Y4, X5, Y5, X6, Y6, X7, Y7, X8,Y8,X9,Y9;
         int LastClicked = 0;
-        Image img, img2, img3, img4, img5, img6;*/
+        Image img1, img2, img3, img4, img5, img6, img7, img8, img9;
 
-        /*Rectangle square = new Rectangle(380, 10, 150, 150);
-        Rectangle square2 = new Rectangle(380, 10, 150, 150);
-        Rectangle door = new Rectangle(220, 10, 200, 143);
-        Rectangle door2 = new Rectangle(220, 10, 220, 143);
-        Rectangle hood = new Rectangle(380, 10, 270, 190);
-        Rectangle roof = new Rectangle(380, 10, 570, 150);
-        Rectangle trunk = new Rectangle(50, 10, 265, 205);*/
 
-        //Rectangle square = new Rectangle(200, 10, 50, 50);
-        //Rectangle square2 = new Rectangle(500, 10, 50, 50);
-        //Rectangle door = new Rectangle(700, 10, 67, 48);
-        //Rectangle door2 = new Rectangle(600, 10, 67, 48);
-        //Rectangle hood = new Rectangle(300, 10, 90, 63);
-        //Rectangle roof = new Rectangle(800, 10, 190, 50);
-        //Rectangle trunk = new Rectangle(50, 10, 88, 68);
+        Rectangle earth = new Rectangle(-200, -200, 91, 92);
+        Rectangle mercury = new Rectangle(-200, -200, 42, 40);
+        Rectangle venera = new Rectangle(-200, -200, 84, 83);
+        Rectangle mars = new Rectangle(-200, -200, 79, 78);
+        Rectangle jupiter = new Rectangle(-200, -200, 166, 164);
+        Rectangle saturn = new Rectangle(-200, -200, 156, 204);
+        Rectangle uran = new Rectangle(-200, -200, 102, 101);
+        Rectangle neptun = new Rectangle(-200, -200, 87, 88);
+        Rectangle pluton = new Rectangle(-200, -200, 38, 38);
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(img1, earth);
+            e.Graphics.DrawImage(img2, mercury);
+            e.Graphics.DrawImage(img3, venera);
+            e.Graphics.DrawImage(img4, mars);
+            e.Graphics.DrawImage(img5, jupiter);
+            e.Graphics.DrawImage(img6, saturn);
+            e.Graphics.DrawImage(img7, uran);
+            e.Graphics.DrawImage(img8, neptun);
+            e.Graphics.DrawImage(img9, pluton);
+        }
+
         public FormPlanetSpeed()
         {
             InitializeComponent();
-            //pictureBox1.MouseDown += PictureBox1_MouseDown; ;
-            //pictureBox1.MouseUp += PictureBox1_MouseUp; ;
-            //pictureBox1.MouseMove += PictureBox1_MouseMove; ;
+            pictureBox1.MouseDown += PictureBox1_MouseDown;
+            pictureBox1.MouseUp += PictureBox1_MouseUp;
+            pictureBox1.MouseMove += PictureBox1_MouseMove;
 
-            //img = Image.FromFile("C:/Users/Влад/Desktop/gorodnitsev_Car_Puzzle-master/artemFordPuzzle/images/carwheel.png");
-            //img2 = Image.FromFile("C:/Users/Влад/Desktop/gorodnitsev_Car_Puzzle-master/artemFordPuzzle/images/door.png");
-            //img3 = Image.FromFile("C:/Users/Влад/Desktop/gorodnitsev_Car_Puzzle-master/artemFordPuzzle/images/door2.png");
-            //img4 = Image.FromFile("C:/Users/Влад/Desktop/gorodnitsev_Car_Puzzle-master/artemFordPuzzle/images/kapot.png");
-            //img5 = Image.FromFile("C:/Users/Влад/Desktop/gorodnitsev_Car_Puzzle-master/artemFordPuzzle/images/krisha.png");
-            //img6 = Image.FromFile("C:/Users/Влад/Desktop/gorodnitsev_Car_Puzzle-master/artemFordPuzzle/images/bagaz.png");
+            labelEarth.Parent = pictureBox1;
+            labelMercury.Parent = pictureBox1;
+            labelVenera.Parent = pictureBox1;
+            labelMars.Parent = pictureBox1;
+            labelJupiter.Parent = pictureBox1;
+            labelSaturn.Parent = pictureBox1;
+            labelUran.Parent = pictureBox1;
+            labelNeptun.Parent = pictureBox1;
+            labelPluton.Parent = pictureBox1;
+            label2.Parent = pictureBox1;
+
+            img1 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/earthSpeed.png");
+            img2 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/merkurySpeed.png");
+            img3 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/veneraSpeed.png");
+            img4 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/marsSpeed.png");
+            img5 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/upiterSpeed.png");
+            img6 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/saturnSpeed.png");
+            img7 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/uranSpeed.png");
+            img8 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/neptunSpeed.png");
+            img9 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/plutonSpeed.png");
         }
 
-        //private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
-        //{
-        //    if (StatusDone == false)
-        //    {
-        //        if (SquareleClicked)
-        //        {
-        //            square.X = e.X - SquareX;
-        //            square.Y = e.Y - SquareY;
+        private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (StatusDone == false)
+            {
+                if (EarthClicked)
+                {
+                    earth.X = e.X - EarthX;
+                    earth.Y = e.Y - EarthY;
 
 
-        //        }
-        //    }
-        //    if (StatusDone2 == false)
-        //    {
-        //        if (SquareleClicked2)
-        //        {
-        //            square2.X = e.X - SquareX2;
-        //            square2.Y = e.Y - SquareY2;
-
-        //        }
-        //    }
-        //    if (StatusDone3 == false)
-        //    {
-        //        if (DoorClicked)
-        //        {
-        //            door.X = e.X - DoorX;
-        //            door.Y = e.Y - DoorY;
-        //        }
-        //    }
-        //    if (StatusDone4 == false)
-        //    {
-        //        if (DoorClicked2)
-        //        {
-        //            door2.X = e.X - DoorX2;
-        //            door2.Y = e.Y - DoorY2;
-        //        }
-        //    }
-        //    if (StatusDone5 == false)
-        //    {
-        //        if (HoodClicked)
-        //        {
-        //            hood.X = e.X - HoodX;
-        //            hood.Y = e.Y - HoodY;
-        //        }
-        //    }
-        //    if (StatusDone6 == false)
-        //    {
-        //        if (RoofClicked)
-        //        {
-        //            roof.X = e.X - RoofX;
-        //            roof.Y = e.Y - RoofY;
-        //        }
-        //    }
-        //    if (StatusDone7 == false)
-        //    {
-        //        if (TrunkClicked)
-        //        {
-        //            trunk.X = e.X - TrunkX;
-        //            trunk.Y = e.Y - TrunkY;
-        //        }
-        //    }
-        //    pictureBox1.Invalidate();
+                }
+            }
+            if (StatusDone2 == false)
+            {
+                if (MercuryClicked)
+                {
+                    mercury.X = e.X - MercuryX;
+                    mercury.Y = e.Y - MercuryY;
 
 
+                }
+            }
+            if (StatusDone3 == false)
+            {
+                if (VeneraClicked)
+                {
+                    venera.X = e.X - VeneraX;
+                    venera.Y = e.Y - VeneraY;
 
 
-        //}
-
-        //private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
-        //{
-        //    if (((label2.Location.X < square.X + square.Width) && (label2.Location.X > square.X))
-        //      && ((label2.Location.Y < square.Y + square.Height) && (label2.Location.Y > square.Y)))
-        //    {
-        //        StatusDone = true;
-        //        square.X = 687;
-        //        square.Y = 230;
-        //        square.Size = new Size(150, 150);
+                }
+            }
+            if (StatusDone4 == false)
+            {
+                if (MarsClicked)
+                {
+                    mars.X = e.X - MarsX;
+                    mars.Y = e.Y - MarsY;
 
 
-        //    }
-
-        //    if (((label3.Location.X < square2.X + square2.Width) && (label3.Location.X > square2.X))
-        //      && ((label3.Location.Y < square2.Y + square2.Height) && (label3.Location.Y > square2.Y)))
-        //    {
-        //        StatusDone2 = true;
-        //        square2.X = 120;
-        //        square2.Y = 225;
-        //        square2.Size = new Size(150, 150);
-
-
-        //    }
-        //    if (((label4.Location.X < door.X + door.Width) && (label4.Location.X > door.X))
-        //      && ((label4.Location.Y < door.Y + door.Height) && (label4.Location.Y > door.Y)))
-        //    {
-        //        StatusDone3 = true;
-        //        door.X = 325;
-        //        door.Y = 167;
-        //        door.Size = new Size(200, 143);
-
-        //    }
-        //    if (((label5.Location.X < door2.X + door2.Width) && (label5.Location.X > door2.X))
-        //      && ((label5.Location.Y < door2.Y + door2.Height) && (label5.Location.Y > door2.Y)))
-        //    {
-        //        StatusDone4 = true;
-        //        door2.X = 522;
-        //        door2.Y = 164;
-        //        door2.Size = new Size(200, 143);
-
-        //    }
-        //    if (((label6.Location.X < hood.X + hood.Width) && (label6.Location.X > hood.X))
-        //      && ((label6.Location.Y < hood.Y + hood.Height) && (label6.Location.Y > hood.Y)))
-        //    {
-        //        StatusDone5 = true;
-        //        hood.X = 35;
-        //        hood.Y = 150;
-        //        hood.Size = new Size(270, 190);
-
-        //    }
-        //    if (((label7.Location.X < roof.X + roof.Width) && (label7.Location.X > roof.X))
-        //      && ((label7.Location.Y < roof.Y + roof.Height) && (label7.Location.Y > roof.Y)))
-        //    {
-        //        StatusDone6 = true;
-        //        roof.X = 300;
-        //        roof.Y = 53;
-        //        roof.Size = new Size(570, 150);
-
-        //    }
-        //    if (((label8.Location.X < trunk.X + trunk.Width) && (label8.Location.X > trunk.X))
-        //      && ((label8.Location.Y < trunk.Y + trunk.Height) && (label8.Location.Y > trunk.Y)))
-        //    {
-        //        StatusDone7 = true;
-        //        trunk.X = 720;
-        //        trunk.Y = 125;
-        //        trunk.Size = new Size(265, 205);
-
-        //    }
-        //    if (StatusDone == true && StatusDone2 == true && StatusDone3 == true && StatusDone4 == true && StatusDone5 == true && StatusDone6 == true && StatusDone7 == true)
-        //    {
-        //        //label8.Text = "Всё собрано";
-        //    }
-        //    else
-        //    {
-        //        //label8.Text = "...";
-        //    }
+                }
+            }
+            if (StatusDone5 == false)
+            {
+                if (JupiterClicked)
+                {
+                    jupiter.X = e.X - JupiterX;
+                    jupiter.Y = e.Y - JupiterY;
 
 
+                }
+            }
+            if (StatusDone6 == false)
+            {
+                if (SaturnClicked)
+                {
+                    saturn.X = e.X - SaturnX;
+                    saturn.Y = e.Y - SaturnY;
 
-        //    if (SquareleClicked)
-        //    {
-        //        LastClicked = 1;
-        //        X = square.X;
-        //        Y = square.Y;
-        //        if (StatusDone == true)
-        //        {
-        //            square.Size = new Size(150, 150);
-        //        }
-        //        else
-        //        {
-        //            square.Size = new Size(50, 50);
-        //        }
 
-        //    }
-        //    else if (SquareleClicked2)
-        //    {
-        //        LastClicked = 2;
-        //        X = square2.X;
-        //        Y = square2.Y;
-        //        if (StatusDone2 == true)
-        //        {
-        //            square2.Size = new Size(150, 150);
-        //        }
-        //        else
-        //        {
-        //            square2.Size = new Size(50, 50);
-        //        }
-        //    }
-        //    else if (DoorClicked)
-        //    {
-        //        LastClicked = 3;
-        //        X = door.X;
-        //        Y = door.Y;
-        //        if (StatusDone3 == true)
-        //        {
-        //            door.Size = new Size(200, 143);
-        //        }
-        //        else
-        //        {
-        //            door.Size = new Size(67, 48);
-        //        }
-        //    }
-        //    else if (DoorClicked2)
-        //    {
-        //        LastClicked = 4;
-        //        X = door2.X;
-        //        Y = door2.Y;
-        //        if (StatusDone4 == true)
-        //        {
-        //            door2.Size = new Size(200, 143);
-        //        }
-        //        else
-        //        {
-        //            door2.Size = new Size(67, 48);
-        //        }
+                }
+            }
+            if (StatusDone7 == false)
+            {
+                if (UrankClicked)
+                {
+                    uran.X = e.X - UranX;
+                    uran.Y = e.Y - UranY;
 
-        //    }
-        //    else if (HoodClicked)
-        //    {
-        //        LastClicked = 5;
-        //        X = hood.X;
-        //        Y = hood.Y;
-        //        if (StatusDone5 == true)
-        //        {
-        //            hood.Size = new Size(270, 190);
-        //        }
-        //        else
-        //        {
-        //            hood.Size = new Size(90, 63);
-        //        }
 
-        //    }
-        //    else if (RoofClicked)
-        //    {
-        //        LastClicked = 6;
-        //        X = roof.X;
-        //        Y = roof.Y;
-        //        if (StatusDone6 == true)
-        //        {
-        //            roof.Size = new Size(570, 150);
-        //        }
-        //        else
-        //        {
-        //            roof.Size = new Size(190, 50);
-        //        }
+                }
+            }
+            if (StatusDone8 == false)
+            {
+                if (NeptunClicked)
+                {
+                    neptun.X = e.X - NeptunX;
+                    neptun.Y = e.Y - NeptunY;
 
-        //    }
-        //    else if (TrunkClicked)
-        //    {
-        //        LastClicked = 7;
-        //        X = trunk.X;
-        //        Y = trunk.Y;
-        //        if (StatusDone7 == true)
-        //        {
-        //            trunk.Size = new Size(265, 205);
-        //        }
-        //        else
-        //        {
-        //            trunk.Size = new Size(88, 68);
-        //        }
 
-        //    }
-        //    SquareleClicked = false;
-        //    SquareleClicked2 = false;
-        //    DoorClicked = false;
-        //    DoorClicked2 = false;
-        //    HoodClicked = false;
-        //    RoofClicked = false;
-        //    TrunkClicked = false;
-        //}
+                }
+            }
+            if (StatusDone9 == false)
+            {
+                if (PlutonClicked)
+                {
+                    pluton.X = e.X - PlutonX;
+                    pluton.Y = e.Y - PlutonY;
 
-        //private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    if ((e.X < square.X + square.Width) && (e.X > square.X))
-        //    {
-        //        if ((e.Y < square.Y + square.Height) && (e.Y > square.Y))
-        //        {
-        //            SquareleClicked = true;
 
-        //            SquareX = e.X - square.X;
-        //            SquareY = e.Y - square.Y;
-        //            square.Size = new Size(150, 150);
-        //        }
-        //    }
-        //    if ((e.X < square2.X + square2.Width) && (e.X > square2.X))
-        //    {
-        //        if ((e.Y < square2.Y + square2.Height) && (e.Y > square2.Y))
-        //        {
-        //            SquareleClicked2 = true;
+                }
+            }
+            pictureBox1.Invalidate();
+        }
 
-        //            SquareX2 = e.X - square2.X;
-        //            SquareY2 = e.Y - square2.Y;
-        //            square2.Size = new Size(150, 150);
-        //        }
-        //    }
-        //    if ((e.X < door.X + door.Width) && (e.X > door.X))
-        //    {
-        //        if ((e.Y < door.Y + door.Height) && (e.Y > door.Y))
-        //        {
-        //            DoorClicked = true;
+        private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (((labelEarth.Location.X < earth.X + earth.Width) && (labelEarth.Location.X > earth.X))
+              && ((labelEarth.Location.Y < earth.Y + earth.Height) && (labelEarth.Location.Y > earth.Y)))
+            {
+                StatusDone = true;
+                earth.X = 394;
+                earth.Y = 231;
 
-        //            DoorX = e.X - door.X;
-        //            DoorY = e.Y - door.Y;
-        //            door.Size = new Size(200, 143);
-        //        }
-        //    }
-        //    if ((e.X < door2.X + door2.Width) && (e.X > door2.X))
-        //    {
-        //        if ((e.Y < door2.Y + door2.Height) && (e.Y > door2.Y))
-        //        {
-        //            DoorClicked2 = true;
 
-        //            DoorX2 = e.X - door2.X;
-        //            DoorY2 = e.Y - door2.Y;
-        //            door2.Size = new Size(200, 143);
-        //        }
-        //    }
-        //    if ((e.X < hood.X + hood.Width) && (e.X > hood.X))
-        //    {
-        //        if ((e.Y < hood.Y + hood.Height) && (e.Y > hood.Y))
-        //        {
-        //            HoodClicked = true;
+            }
 
-        //            HoodX = e.X - hood.X;
-        //            HoodY = e.Y - hood.Y;
-        //            hood.Size = new Size(270, 190);
-        //        }
-        //    }
-        //    if ((e.X < roof.X + roof.Width) && (e.X > roof.X))
-        //    {
-        //        if ((e.Y < roof.Y + roof.Height) && (e.Y > roof.Y))
-        //        {
-        //            RoofClicked = true;
+            if (((labelMercury.Location.X < mercury.X + mercury.Width) && (labelMercury.Location.X > mercury.X))
+              && ((labelMercury.Location.Y < mercury.Y + mercury.Height) && (labelMercury.Location.Y > mercury.Y)))
+            {
+                StatusDone2 = true;
+                mercury.X = 239;
+                mercury.Y = 257;
 
-        //            RoofX = e.X - roof.X;
-        //            RoofY = e.Y - roof.Y;
-        //            roof.Size = new Size(570, 150);
-        //        }
-        //    }
-        //    if ((e.X < trunk.X + trunk.Width) && (e.X > trunk.X))
-        //    {
-        //        if ((e.Y < trunk.Y + trunk.Height) && (e.Y > trunk.Y))
-        //        {
-        //            TrunkClicked = true;
+            }
+            if (((labelVenera.Location.X < venera.X + venera.Width) && (labelVenera.Location.X > venera.X))
+              && ((labelVenera.Location.Y < venera.Y + venera.Height) && (labelVenera.Location.Y > venera.Y)))
+            {
+                StatusDone3 = true;
+                venera.X = 295;
+                venera.Y = 235;
 
-        //            TrunkX = e.X - trunk.X;
-        //            TrunkY = e.Y - trunk.Y;
-        //            trunk.Size = new Size(265, 205);
-        //        }
-        //    }
-        //}
+            }
+            if (((labelMars.Location.X < mars.X + mars.Width) && (labelMars.Location.X > mars.X))
+              && ((labelMars.Location.Y < mars.Y + mars.Height) && (labelMars.Location.Y > mars.Y)))
+            {
+                StatusDone4 = true;
+                mars.X = 502;
+                mars.Y = 238;
+
+            }
+            if (((labelJupiter.Location.X < jupiter.X + jupiter.Width) && (labelJupiter.Location.X > jupiter.X))
+              && ((labelJupiter.Location.Y < jupiter.Y + jupiter.Height) && (labelJupiter.Location.Y > jupiter.Y)))
+            {
+                StatusDone5 = true;
+                jupiter.X = 599;
+                jupiter.Y = 195;
+
+            }
+            if (((labelSaturn.Location.X < saturn.X + saturn.Width) && (labelSaturn.Location.X > saturn.X))
+              && ((labelSaturn.Location.Y < saturn.Y + saturn.Height) && (labelSaturn.Location.Y > saturn.Y)))
+            {
+                StatusDone6 = true;
+                saturn.X = 786;
+                saturn.Y = 175;
+
+            }
+            if (((labelUran.Location.X < uran.X + uran.Width) && (labelUran.Location.X > uran.X))
+              && ((labelUran.Location.Y < uran.Y + uran.Height) && (labelUran.Location.Y > uran.Y)))
+            {
+                StatusDone7 = true;
+                uran.X = 965;
+                uran.Y = 226;
+
+            }
+            if (((labelNeptun.Location.X < neptun.X + neptun.Width) && (labelNeptun.Location.X > neptun.X))
+              && ((labelNeptun.Location.Y < neptun.Y + neptun.Height) && (labelNeptun.Location.Y > neptun.Y)))
+            {
+                StatusDone8 = true;
+                neptun.X = 1090;
+                neptun.Y = 233;
+
+            }
+            if (((labelPluton.Location.X < pluton.X + pluton.Width) && (labelPluton.Location.X > pluton.X))
+              && ((labelPluton.Location.Y < pluton.Y + pluton.Height) && (labelPluton.Location.Y > pluton.Y)))
+            {
+                StatusDone9 = true;
+                pluton.X = 1205;
+                pluton.Y = 256;
+
+            }
+            if (StatusDone == true && StatusDone2 == true && StatusDone3 == true && StatusDone4 == true && StatusDone5 == true && StatusDone6 == true && StatusDone7 == true && StatusDone8 == true && StatusDone9 == true)
+            {
+                timer1.Enabled = false;
+                label2.Text = "Все планеты расставлены верно";                
+                label2.Visible = true;
+            }
+
+
+
+            if (EarthClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+
+
+            }
+            if (MercuryClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+
+
+            }
+            if (VeneraClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+
+
+            }
+            if (MarsClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+
+
+            }
+            if (JupiterClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+
+
+            }
+            if (SaturnClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+            }
+            if (UrankClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+            }
+            if (NeptunClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+            }
+            if (PlutonClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+            }
+            EarthClicked = false;
+            MercuryClicked = false;
+            VeneraClicked = false;
+            MarsClicked = false;
+            JupiterClicked = false;
+            SaturnClicked = false;
+            UrankClicked = false;
+            NeptunClicked = false;
+            PlutonClicked = false;
+        }
+
+        private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if ((e.X < earth.X + earth.Width) && (e.X > earth.X))
+            {
+                if ((e.Y < earth.Y + earth.Height) && (e.Y > earth.Y))
+                {
+                    EarthClicked = true;
+
+                    EarthX = e.X - earth.X;
+                    EarthY = e.Y - earth.Y;
+                }
+            }
+            if ((e.X < mercury.X + mercury.Width) && (e.X > mercury.X))
+            {
+                if ((e.Y < mercury.Y + mercury.Height) && (e.Y > mercury.Y))
+                {
+                    MercuryClicked = true;
+
+                    MercuryX = e.X - mercury.X;
+                    MercuryY = e.Y - mercury.Y;
+                }
+            }
+            if ((e.X < venera.X + venera.Width) && (e.X > venera.X))
+            {
+                if ((e.Y < venera.Y + venera.Height) && (e.Y > venera.Y))
+                {
+                    VeneraClicked = true;
+
+                    VeneraX = e.X - venera.X;
+                    VeneraY = e.Y - venera.Y;
+                }
+            }
+            if ((e.X < mars.X + mars.Width) && (e.X > mars.X))
+            {
+                if ((e.Y < mars.Y + mars.Height) && (e.Y > mars.Y))
+                {
+                    MarsClicked = true;
+
+                    MarsX = e.X - mars.X;
+                    MarsY = e.Y - mars.Y;
+                }
+            }
+            if ((e.X < jupiter.X + jupiter.Width) && (e.X > jupiter.X))
+            {
+                if ((e.Y < jupiter.Y + jupiter.Height) && (e.Y > jupiter.Y))
+                {
+                    JupiterClicked = true;
+
+                    JupiterX = e.X - jupiter.X;
+                    JupiterY = e.Y - jupiter.Y;
+                }
+            }
+            if ((e.X < saturn.X + saturn.Width) && (e.X > saturn.X))
+            {
+                if ((e.Y < saturn.Y + saturn.Height) && (e.Y > saturn.Y))
+                {
+                    SaturnClicked = true;
+
+                    SaturnX = e.X - saturn.X;
+                    SaturnY = e.Y - saturn.Y;
+                }
+            }
+            if ((e.X < uran.X + uran.Width) && (e.X > uran.X))
+            {
+                if ((e.Y < uran.Y + uran.Height) && (e.Y > uran.Y))
+                {
+                    UrankClicked = true;
+
+                    UranX = e.X - uran.X;
+                    UranY = e.Y - uran.Y;
+                }
+            }
+            if ((e.X < neptun.X + neptun.Width) && (e.X > neptun.X))
+            {
+                if ((e.Y < neptun.Y + neptun.Height) && (e.Y > neptun.Y))
+                {
+                    NeptunClicked = true;
+
+                    NeptunX = e.X - neptun.X;
+                    NeptunY = e.Y - neptun.Y;
+                }
+            }
+            if ((e.X < pluton.X + pluton.Width) && (e.X > pluton.X))
+            {
+                if ((e.Y < pluton.Y + pluton.Height) && (e.Y > pluton.Y))
+                {
+                    PlutonClicked = true;
+
+                    PlutonX = e.X - pluton.X;
+                    PlutonY = e.Y - pluton.Y;
+                }
+            }
+        }
+
 
         private void buttonExitForm1_Click(object sender, EventArgs e)
         {
@@ -399,6 +439,55 @@ namespace SunSystemProject
         {
             pictureBox1.Image = Properties.Resources.planetSpeedSunSystemCutRus;
             timer1.Enabled = true;
+            buttonGameStart.Visible = false;
+
+            Random rand = new Random();
+            X = rand.Next(pictureBox1.Width - 100);
+            Y = rand.Next(pictureBox1.Height - 400);
+            earth.Location = new Point(X, Y);
+            earth.Size = new Size(91, 92);
+            StatusDone = false;
+            X2 = rand.Next(pictureBox1.Width - 100);
+            Y2 = rand.Next(pictureBox1.Height - 400);
+            mercury.Location = new Point(X2, Y2);
+            mercury.Size = new Size(42, 40);
+            StatusDone2 = false;
+            X3 = rand.Next(pictureBox1.Width - 100);
+            Y3 = rand.Next(pictureBox1.Height - 400);
+            venera.Location = new Point(X3, Y3);
+            venera.Size = new Size(84, 83);
+            StatusDone3 = false;
+            X4 = rand.Next(pictureBox1.Width - 100);
+            Y4 = rand.Next(pictureBox1.Height - 400);
+            mars.Location = new Point(X4, Y4);
+            mars.Size = new Size(79, 78);
+            StatusDone4 = false;
+            X5 = rand.Next(pictureBox1.Width - 100);
+            Y5 = rand.Next(pictureBox1.Height - 400);
+            jupiter.Location = new Point(X5, Y5);
+            jupiter.Size = new Size(166, 164);
+            StatusDone5 = false;
+            X6 = rand.Next(pictureBox1.Width - 100);
+            Y6 = rand.Next(pictureBox1.Height - 400);
+            saturn.Location = new Point(X6, Y6);
+            saturn.Size = new Size(156, 204);
+            StatusDone6 = false;
+            X7 = rand.Next(pictureBox1.Width - 100);
+            Y7 = rand.Next(pictureBox1.Height - 400);
+            uran.Location = new Point(X7, Y7);
+            uran.Size = new Size(102, 101);
+            StatusDone7 = false;
+            X8 = rand.Next(pictureBox1.Width - 100);
+            Y8 = rand.Next(pictureBox1.Height - 400);
+            neptun.Location = new Point(X8, Y8);
+            neptun.Size = new Size(87, 88);
+            StatusDone8 = false;
+            X9 = rand.Next(pictureBox1.Width - 100);
+            Y9 = rand.Next(pictureBox1.Height - 400);
+            pluton.Location = new Point(X9, Y9);
+            pluton.Size = new Size(38, 38);
+            StatusDone9 = false;
+
         }
 
         private void Timer1_Tick(object sender, EventArgs e)

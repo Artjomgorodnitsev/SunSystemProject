@@ -37,6 +37,16 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labeltime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelEarth = new System.Windows.Forms.Label();
+            this.labelVenera = new System.Windows.Forms.Label();
+            this.labelMercury = new System.Windows.Forms.Label();
+            this.labelMars = new System.Windows.Forms.Label();
+            this.labelJupiter = new System.Windows.Forms.Label();
+            this.labelSaturn = new System.Windows.Forms.Label();
+            this.labelUran = new System.Windows.Forms.Label();
+            this.labelNeptun = new System.Windows.Forms.Label();
+            this.labelPluton = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +114,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::SunSystemProject.Properties.Resources.planetSpeedMain2rus;
             this.pictureBox1.Location = new System.Drawing.Point(13, 13);
@@ -112,6 +123,90 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            // 
+            // labelEarth
+            // 
+            this.labelEarth.BackColor = System.Drawing.Color.Transparent;
+            this.labelEarth.Location = new System.Drawing.Point(416, 262);
+            this.labelEarth.Name = "labelEarth";
+            this.labelEarth.Size = new System.Drawing.Size(57, 25);
+            this.labelEarth.TabIndex = 9;
+            // 
+            // labelVenera
+            // 
+            this.labelVenera.BackColor = System.Drawing.Color.Transparent;
+            this.labelVenera.Location = new System.Drawing.Point(321, 287);
+            this.labelVenera.Name = "labelVenera";
+            this.labelVenera.Size = new System.Drawing.Size(57, 13);
+            this.labelVenera.TabIndex = 10;
+            // 
+            // labelMercury
+            // 
+            this.labelMercury.Location = new System.Drawing.Point(256, 287);
+            this.labelMercury.Name = "labelMercury";
+            this.labelMercury.Size = new System.Drawing.Size(32, 13);
+            this.labelMercury.TabIndex = 11;
+            // 
+            // labelMars
+            // 
+            this.labelMars.BackColor = System.Drawing.Color.Transparent;
+            this.labelMars.Location = new System.Drawing.Point(540, 274);
+            this.labelMars.Name = "labelMars";
+            this.labelMars.Size = new System.Drawing.Size(35, 13);
+            this.labelMars.TabIndex = 12;
+            // 
+            // labelJupiter
+            // 
+            this.labelJupiter.BackColor = System.Drawing.Color.Transparent;
+            this.labelJupiter.Location = new System.Drawing.Point(673, 287);
+            this.labelJupiter.Name = "labelJupiter";
+            this.labelJupiter.Size = new System.Drawing.Size(35, 13);
+            this.labelJupiter.TabIndex = 13;
+            // 
+            // labelSaturn
+            // 
+            this.labelSaturn.BackColor = System.Drawing.Color.Transparent;
+            this.labelSaturn.Location = new System.Drawing.Point(860, 287);
+            this.labelSaturn.Name = "labelSaturn";
+            this.labelSaturn.Size = new System.Drawing.Size(35, 13);
+            this.labelSaturn.TabIndex = 14;
+            // 
+            // labelUran
+            // 
+            this.labelUran.BackColor = System.Drawing.Color.Transparent;
+            this.labelUran.Location = new System.Drawing.Point(1015, 287);
+            this.labelUran.Name = "labelUran";
+            this.labelUran.Size = new System.Drawing.Size(35, 13);
+            this.labelUran.TabIndex = 15;
+            // 
+            // labelNeptun
+            // 
+            this.labelNeptun.BackColor = System.Drawing.Color.Transparent;
+            this.labelNeptun.Location = new System.Drawing.Point(1130, 287);
+            this.labelNeptun.Name = "labelNeptun";
+            this.labelNeptun.Size = new System.Drawing.Size(35, 13);
+            this.labelNeptun.TabIndex = 16;
+            // 
+            // labelPluton
+            // 
+            this.labelPluton.BackColor = System.Drawing.Color.Transparent;
+            this.labelPluton.Location = new System.Drawing.Point(1221, 287);
+            this.labelPluton.Name = "labelPluton";
+            this.labelPluton.Size = new System.Drawing.Size(35, 13);
+            this.labelPluton.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(276, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(788, 437);
+            this.label2.TabIndex = 18;
+            this.label2.Visible = false;
             // 
             // FormPlanetSpeed
             // 
@@ -119,6 +214,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1296, 621);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelPluton);
+            this.Controls.Add(this.labelNeptun);
+            this.Controls.Add(this.labelUran);
+            this.Controls.Add(this.labelSaturn);
+            this.Controls.Add(this.labelJupiter);
+            this.Controls.Add(this.labelMars);
+            this.Controls.Add(this.labelMercury);
+            this.Controls.Add(this.labelVenera);
+            this.Controls.Add(this.labelEarth);
             this.Controls.Add(this.labeltime);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonExitForm1);
@@ -143,5 +248,15 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labeltime;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelVenera;
+        private System.Windows.Forms.Label labelEarth;
+        private System.Windows.Forms.Label labelPluton;
+        private System.Windows.Forms.Label labelNeptun;
+        private System.Windows.Forms.Label labelUran;
+        private System.Windows.Forms.Label labelSaturn;
+        private System.Windows.Forms.Label labelJupiter;
+        private System.Windows.Forms.Label labelMars;
+        private System.Windows.Forms.Label labelMercury;
+        private System.Windows.Forms.Label label2;
     }
 }
