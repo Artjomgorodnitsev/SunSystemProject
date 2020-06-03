@@ -64,15 +64,15 @@ namespace SunSystemProject
             labelPluton.Parent = pictureBox1;
             label2.Parent = pictureBox1;
 
-            img1 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/earthSpeed.png");
-            img2 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/merkurySpeed.png");
-            img3 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/veneraSpeed.png");
-            img4 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/marsSpeed.png");
-            img5 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/upiterSpeed.png");
-            img6 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/saturnSpeed.png");
-            img7 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/uranSpeed.png");
-            img8 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/neptunSpeed.png");
-            img9 = Image.FromFile("C:/Users/User/SunSystemProject/images/imgSpeed/plutonSpeed.png");
+            img1 = Image.FromFile("C:/Users/Aleks/source/repos/SunSystemProject/images/imgSpeed/earthSpeed.png");
+            img2 = Image.FromFile("C:/Users/Aleks/source/repos/SunSystemProject/images/imgSpeed/merkurySpeed.png");
+            img3 = Image.FromFile("C:/Users/Aleks/source/repos/SunSystemProject/images/imgSpeed/veneraSpeed.png");
+            img4 = Image.FromFile("C:/Users/Aleks/source/repos/SunSystemProject/images/imgSpeed/marsSpeed.png");
+            img5 = Image.FromFile("C:/Users/Aleks/source/repos/SunSystemProject/images/imgSpeed/upiterSpeed.png");
+            img6 = Image.FromFile("C:/Users/Aleks/source/repos/SunSystemProject/images/imgSpeed/saturnSpeed.png");
+            img7 = Image.FromFile("C:/Users/Aleks/source/repos/SunSystemProject/images/imgSpeed/uranSpeed.png");
+            img8 = Image.FromFile("C:/Users/Aleks/source/repos/SunSystemProject/images/imgSpeed/neptunSpeed.png");
+            img9 = Image.FromFile("C:/Users/Aleks/source/repos/SunSystemProject/images/imgSpeed/plutonSpeed.png");
         }
 
         private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -249,7 +249,7 @@ namespace SunSystemProject
             if (StatusDone == true && StatusDone2 == true && StatusDone3 == true && StatusDone4 == true && StatusDone5 == true && StatusDone6 == true && StatusDone7 == true && StatusDone8 == true && StatusDone9 == true)
             {
                 timer1.Enabled = false;
-                label2.Text = "Все планеты расставлены верно";                
+                label2.Text = "Все планеты расставлены верно";
                 label2.Visible = true;
             }
 

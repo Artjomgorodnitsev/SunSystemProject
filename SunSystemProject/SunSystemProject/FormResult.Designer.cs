@@ -48,6 +48,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.listBox5 = new System.Windows.Forms.ListBox();
+            this.listBox6 = new System.Windows.Forms.ListBox();
+            this.listBox7 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.recordsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseSunSystemDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseSunSystemDataSet)).BeginInit();
@@ -114,7 +125,7 @@
             this.listBox1.Location = new System.Drawing.Point(33, 219);
             this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(850, 160);
+            this.listBox1.Size = new System.Drawing.Size(850, 140);
             this.listBox1.TabIndex = 4;
             // 
             // label2
@@ -250,12 +261,158 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Black;
+            this.radioButton1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton1.ForeColor = System.Drawing.Color.White;
+            this.radioButton1.Location = new System.Drawing.Point(9, 9);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(93, 22);
+            this.radioButton1.TabIndex = 23;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Все игры";
+            this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.BackColor = System.Drawing.Color.Black;
+            this.radioButton2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton2.ForeColor = System.Drawing.Color.White;
+            this.radioButton2.Location = new System.Drawing.Point(98, 10);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(144, 22);
+            this.radioButton2.TabIndex = 24;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Защита планеты";
+            this.radioButton2.UseVisualStyleBackColor = false;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.BackColor = System.Drawing.Color.Black;
+            this.radioButton3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton3.ForeColor = System.Drawing.Color.White;
+            this.radioButton3.Location = new System.Drawing.Point(9, 38);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(58, 22);
+            this.radioButton3.TabIndex = 25;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Тест";
+            this.radioButton3.UseVisualStyleBackColor = false;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.BackColor = System.Drawing.Color.Black;
+            this.radioButton4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton4.ForeColor = System.Drawing.Color.White;
+            this.radioButton4.Location = new System.Drawing.Point(98, 37);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(180, 22);
+            this.radioButton4.TabIndex = 26;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Планеты на скорость";
+            this.radioButton4.UseVisualStyleBackColor = false;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            // 
+            // listBox2
+            // 
+            this.listBox2.BackColor = System.Drawing.Color.Black;
+            this.listBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox2.ForeColor = System.Drawing.Color.Black;
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(126, 215);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(152, 143);
+            this.listBox2.TabIndex = 27;
+            // 
+            // listBox3
+            // 
+            this.listBox3.BackColor = System.Drawing.Color.Black;
+            this.listBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(264, 215);
+            this.listBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(97, 143);
+            this.listBox3.TabIndex = 28;
+            this.listBox3.Visible = false;
+            // 
+            // listBox4
+            // 
+            this.listBox4.BackColor = System.Drawing.Color.Black;
+            this.listBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.Location = new System.Drawing.Point(358, 215);
+            this.listBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(99, 143);
+            this.listBox4.TabIndex = 29;
+            this.listBox4.Visible = false;
+            // 
+            // listBox5
+            // 
+            this.listBox5.BackColor = System.Drawing.Color.Black;
+            this.listBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox5.FormattingEnabled = true;
+            this.listBox5.Location = new System.Drawing.Point(453, 215);
+            this.listBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox5.Name = "listBox5";
+            this.listBox5.Size = new System.Drawing.Size(113, 143);
+            this.listBox5.TabIndex = 30;
+            this.listBox5.Visible = false;
+            // 
+            // listBox6
+            // 
+            this.listBox6.BackColor = System.Drawing.Color.Black;
+            this.listBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox6.FormattingEnabled = true;
+            this.listBox6.Location = new System.Drawing.Point(560, 215);
+            this.listBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox6.Name = "listBox6";
+            this.listBox6.Size = new System.Drawing.Size(185, 143);
+            this.listBox6.TabIndex = 31;
+            this.listBox6.Visible = false;
+            // 
+            // listBox7
+            // 
+            this.listBox7.BackColor = System.Drawing.Color.Black;
+            this.listBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox7.FormattingEnabled = true;
+            this.listBox7.Location = new System.Drawing.Point(742, 215);
+            this.listBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox7.Name = "listBox7";
+            this.listBox7.Size = new System.Drawing.Size(159, 143);
+            this.listBox7.TabIndex = 32;
+            this.listBox7.Visible = false;
+            // 
             // FormResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SunSystemProject.Properties.Resources.sunSystemForm1Main;
             this.ClientSize = new System.Drawing.Size(921, 486);
+            this.Controls.Add(this.listBox7);
+            this.Controls.Add(this.listBox6);
+            this.Controls.Add(this.listBox5);
+            this.Controls.Add(this.listBox4);
+            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.radioButton4);
+            this.Controls.Add(this.radioButton3);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label9);
@@ -304,5 +461,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.ListBox listBox5;
+        private System.Windows.Forms.ListBox listBox6;
+        private System.Windows.Forms.ListBox listBox7;
     }
 }

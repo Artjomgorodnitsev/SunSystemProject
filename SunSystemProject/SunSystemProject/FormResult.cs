@@ -21,11 +21,17 @@ namespace SunSystemProject
 
         private async void FormResult_Load(object sender, EventArgs e)
         {
+            listBox2.Visible = false;
+            listBox3.Visible = false;
+            listBox4.Visible = false;
+            listBox5.Visible = false;
+            listBox6.Visible = false;
+            listBox7.Visible = false;
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\SunSystemProject\Database\DatabaseSunSystem.mdf;Integrated Security=True";
 
             sqlConnection = new SqlConnection(connectionString);
 
-            //await sqlConnection.OpenAsync();
+            await sqlConnection.OpenAsync();
 
             SqlDataReader sqlReader = null;
 
@@ -51,7 +57,6 @@ namespace SunSystemProject
             }
             // TODO: данная строка кода позволяет загрузить данные в таблицу "databaseSunSystemDataSet1.Records". При необходимости она может быть перемещена или удалена.
             //this.recordsTableAdapter.Fill(this.databaseSunSystemDataSet1.Records);
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -121,7 +126,7 @@ namespace SunSystemProject
         {
             listBox1.Items.Clear();
             SqlDataReader sqlReader = null;
-            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[CorrectAnswer] DESC", sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[IncorrectAnswer] ASC", sqlConnection);
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
@@ -141,6 +146,7 @@ namespace SunSystemProject
                 if (sqlReader != null)
                     sqlReader.Close();
             }
+
         }
 
         private async void label6_Click(object sender, EventArgs e)
@@ -280,6 +286,46 @@ namespace SunSystemProject
                 if (sqlReader != null)
                     sqlReader.Close();
             }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox2.Visible = false;
+            listBox3.Visible = false;
+            listBox4.Visible = false;
+            listBox5.Visible = false;
+            listBox6.Visible = false;
+            listBox7.Visible = false;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox2.Visible = false;
+            listBox3.Visible = false;
+            listBox4.Visible = true;
+            listBox5.Visible = true;
+            listBox6.Visible = true;
+            listBox7.Visible = true;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox2.Visible = true;
+            listBox3.Visible = true;
+            listBox4.Visible = false;
+            listBox5.Visible = false;
+            listBox6.Visible = true;
+            listBox7.Visible = true;
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox2.Visible = true;
+            listBox3.Visible = true;
+            listBox4.Visible = true;
+            listBox5.Visible = true;
+            listBox6.Visible = false;
+            listBox7.Visible = false;
         }
     }
 }
