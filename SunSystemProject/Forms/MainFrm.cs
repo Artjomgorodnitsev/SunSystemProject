@@ -8,10 +8,16 @@ namespace SunSystemProject.Forms
 {
     public partial class MainFrm : Form
     {
-        
-        public static string UserID;
-        public static SqlConnection SqlConnection;
-        
+        public static string UserId;
+
+        public static async Task<SqlConnection> GetSqlConnection()
+        {
+            var connectionString = ConfigurationManager.ConnectionStrings["SQLConnectionString01"];
+            var sqlConnection = new SqlConnection(connectionString.ToString());
+            await sqlConnection.OpenAsync();
+            return sqlConnection;
+        }
+
         public MainFrm()
         {
             InitializeComponent();
@@ -146,13 +152,9 @@ namespace SunSystemProject.Forms
 
         public async Task LoadName()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["SQLConnectionString01"];
-            SqlConnection = new SqlConnection(connectionString.ToString());
-            await SqlConnection.OpenAsync();
-
             SqlDataReader sqlReader = null;
 
-            var command = new SqlCommand("SELECT TOP 1 * FROM[Records] order by id desc", SqlConnection);
+            var command = new SqlCommand("SELECT TOP 1 * FROM[Records] order by id desc", await GetSqlConnection());
             try
 
             {
@@ -160,7 +162,7 @@ namespace SunSystemProject.Forms
                 while (await sqlReader.ReadAsync())
                 {
                     label29.Text = Convert.ToString(sqlReader["Name"]);
-                    UserID = label29.Text;
+                    UserId = label29.Text;
                 }
             }
             catch (Exception ex)
@@ -171,7 +173,7 @@ namespace SunSystemProject.Forms
 
             finally
             {
-                sqlReader?.Close();
+                sqlReader.Close();
             }
         }
 

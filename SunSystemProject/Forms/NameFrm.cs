@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -41,11 +40,12 @@ namespace SunSystemProject.Forms
 
             if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                var command = new SqlCommand("INSERT INTO [Records] set Name = @Name", MainFrm.SqlConnection);
+                var command = new SqlCommand("INSERT INTO [Records] (Name) VALUES (@Name)",
+                    await MainFrm.GetSqlConnection());
                 command.Parameters.AddWithValue("Name", textBox1.Text);
 
                 await command.ExecuteNonQueryAsync();
-                MainFrm.UserID = textBox1.Text;
+                MainFrm.UserId = textBox1.Text;
                 await _mainForm.LoadName();
                 Close();
             }
@@ -53,12 +53,6 @@ namespace SunSystemProject.Forms
             {
                 label2.Text = @"Введите своё имя!";
             }
-        }
-
-        private void name_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MainFrm.SqlConnection != null && MainFrm.SqlConnection.State != ConnectionState.Closed)
-                MainFrm.SqlConnection.Close();
         }
     }
 }

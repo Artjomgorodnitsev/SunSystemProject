@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SunSystemProject.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,12 +14,11 @@ namespace SunSystemProject
 {
     public partial class FormTest : Form
     {
-        private int m, s, ms;
         public List<string> voprosi;
         int num;
         string vopros;
         string potvet;
-        int balli = 0;
+        int correct, incorrect = 0;
         int randomm = 9;
         public Random random = new Random();
         int kolotvetov = 0;
@@ -26,7 +27,6 @@ namespace SunSystemProject
         public FormTest()
         {
             InitializeComponent();
-
 
             voprosi = new List<string>() { "Какая по счету от Солнца планета Земля?", "Эта планета могла стать звездой, но не набрала достаточно массы:", "Сколько спутников у Марса?",
              "Солнце – типичный представитель этого класса звезд:","Ближайшая к Солнцу планета:","Сколько всего планет в Солнечной системе?","Первооткрывателем законов движения планет Солнечной системы был:","Самая большая планета Солнечной системы?","Самый большой спутник в Солнечной системе:"};
@@ -154,44 +154,62 @@ namespace SunSystemProject
                 {
 
                     ffgf();
-                    balli++;
-                    label2.Text = "Правильных ответов: " + balli.ToString();
+                    correct++;
+                    label2.Text = "Правильных ответов: " + correct.ToString();
 
                 }
                 else if (radioButton2.Name == potvet && radioButton2.Checked)
                 {
 
                     ffgf();
-                    balli++;
-                    label2.Text = "Правильных ответов: " + balli.ToString();
+                    correct++;
+                    label2.Text = "Правильных ответов: " + correct.ToString();
                 }
                 else if (radioButton3.Name == potvet && radioButton3.Checked)
                 {
 
                     ffgf();
-                    balli++;
-                    label2.Text = "Правильных ответов: " + balli.ToString();
+                    correct++;
+                    label2.Text = "Правильных ответов: " + correct.ToString();
 
                 }
                 else if (radioButton4.Name == potvet && radioButton4.Checked)
                 {
 
                     ffgf();
-                    balli++;
-                    label2.Text = "Правильных ответов: " + balli.ToString();
+                    correct++;
+                    label2.Text = "Правильных ответов: " + correct.ToString();
 
                 }
                 else
                 {
+                    incorrect++;
                     ffgf();
                 }
             }
             else
             {
+                
                 label1.Text = "konec";
                 timer1.Enabled = false;
+                SaveGame();
             }
 
+        }
+        protected virtual async Task SaveGame()
+        {
+            var command = new SqlCommand("UPDATE [Records] set CorrectAnswer = @correct where Name = @Name",
+                await MainFrm.GetSqlConnection());
+            command.Parameters.AddWithValue("correct", correct);
+            command.Parameters.AddWithValue("Name", MainFrm.UserId);
+            var command1 = new SqlCommand("UPDATE [Records] set IncorrectAnswer = @incorrect  where Name = @Name",
+                await MainFrm.GetSqlConnection());
+            command1.Parameters.AddWithValue("incorrect", incorrect);
+            command1.Parameters.AddWithValue("Name", MainFrm.UserId);
+
+            await command.ExecuteNonQueryAsync();
+            await command1.ExecuteNonQueryAsync();
+            Close();
         }
         private int _gameDurationSec;
         private void Timer1_Tick(object sender, EventArgs e)

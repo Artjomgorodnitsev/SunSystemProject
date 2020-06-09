@@ -272,10 +272,9 @@ namespace SunSystemProject.Forms
                 pluton.Y = 256;
             }
 
-            // if (StatusDone && StatusDone2 && StatusDone3 && StatusDone4 &&
-            //     StatusDone5 && StatusDone6 && StatusDone7 && StatusDone8 &&
-            //     StatusDone9)
-            if (true)
+            if (StatusDone && StatusDone2 && StatusDone3 && StatusDone4 &&
+                StatusDone5 && StatusDone6 && StatusDone7 && StatusDone8 &&
+                StatusDone9)
             {
                 await SaveGame();
             }
@@ -354,20 +353,26 @@ namespace SunSystemProject.Forms
             NeptunClicked = false;
             PlutonClicked = false;
         }
-
+        private DateTime date;
         protected virtual async Task SaveGame()
         {
+            date = DateTime.Now;
             timer1.Enabled = false;
             label2.Text = @"Все планеты расставлены верно";
             label2.Visible = true;
 
-            var command = new SqlCommand("UPDATE [Records] set Time = @Time where Name = @Name",
-                MainFrm.SqlConnection);
+            var command = new SqlCommand("UPDATE [Records] set Time = @Time  where Name = @Name",
+                await MainFrm.GetSqlConnection());
+            var command1 = new SqlCommand("UPDATE [Records] set Date = @Date  where Name = @Name",
+                await MainFrm.GetSqlConnection());
             TimeSpan t = TimeSpan.FromSeconds(_gameDurationSec);
             command.Parameters.AddWithValue("Time", t);
-            command.Parameters.AddWithValue("Name", MainFrm.UserID);
+            command1.Parameters.AddWithValue("Date", date);
+            command.Parameters.AddWithValue("Name", MainFrm.UserId);
+            command1.Parameters.AddWithValue("Name", MainFrm.UserId);
 
             await command.ExecuteNonQueryAsync();
+            await command1.ExecuteNonQueryAsync();
             Close();
         }
 
