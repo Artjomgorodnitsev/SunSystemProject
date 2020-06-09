@@ -1,0 +1,16 @@
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\bin\Debug\Database\DatabaseSunSystem.mdf
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\bin\Debug\Database\DatabaseSunSystem_log.ldf
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\bin\Debug\SunSystemProject.exe.config
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\bin\Debug\SunSystemProject.exe
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\bin\Debug\SunSystemProject.pdb
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.csprojAssemblyReference.cache
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.Forms.MainFrm.resources
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.Forms.FormDefendGame.resources
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.Forms.FormPlanetSpeed.resources
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.Forms.FormResult.resources
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.Forms.NameFrm.resources
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.Properties.Resources.resources
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.csproj.GenerateResource.cache
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.exe
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.pdb
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.FormTest.resources
