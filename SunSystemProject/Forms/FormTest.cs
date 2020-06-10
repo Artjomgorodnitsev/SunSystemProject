@@ -18,7 +18,8 @@ namespace SunSystemProject
         int num;
         string vopros;
         string potvet;
-        int correct, incorrect = 0;
+        public int correct = 0;
+        public int incorrect = 0;
         int randomm = 9;
         public Random random = new Random();
         int kolotvetov = 0;
@@ -141,6 +142,7 @@ namespace SunSystemProject
 
         private void button1_Click_2(object sender, EventArgs e)
         {
+           
             if (kolotvetov < 8)
             {
 
@@ -153,32 +155,36 @@ namespace SunSystemProject
                 if (radioButton1.Name == potvet && radioButton1.Checked)
                 {
 
-                    ffgf();
+                   
                     correct++;
                     label2.Text = "Правильных ответов: " + correct.ToString();
+                    ffgf();
 
                 }
                 else if (radioButton2.Name == potvet && radioButton2.Checked)
                 {
 
-                    ffgf();
+                    
                     correct++;
                     label2.Text = "Правильных ответов: " + correct.ToString();
+                    ffgf();
                 }
                 else if (radioButton3.Name == potvet && radioButton3.Checked)
                 {
 
-                    ffgf();
+                    
                     correct++;
                     label2.Text = "Правильных ответов: " + correct.ToString();
+                    ffgf();
 
                 }
                 else if (radioButton4.Name == potvet && radioButton4.Checked)
                 {
 
-                    ffgf();
+                    
                     correct++;
                     label2.Text = "Правильных ответов: " + correct.ToString();
+                    ffgf();
 
                 }
                 else
@@ -296,6 +302,11 @@ namespace SunSystemProject
                     potvet = "radioButton2";
                     break;
             }
+        }
+
+        private void Label2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

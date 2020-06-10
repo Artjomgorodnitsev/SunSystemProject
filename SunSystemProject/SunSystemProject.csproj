@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SunSystemProject</RootNamespace>
     <AssemblyName>SunSystemProject</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -28,6 +28,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <LangVersion>8</LangVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -109,6 +110,7 @@
     <Compile Include="Forms\NameFrm.Designer.cs">
       <DependentUpon>NameFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Laser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\MainFrm.resx">
@@ -195,6 +197,8 @@
     <None Include="Resources\planetSpeedMain2rus.jpg" />
     <Content Include="images\04-earth_98587.ico" />
     <Content Include="images\asteroid.png" />
+    <Content Include="images\asteroid1.png" />
+    <Content Include="images\asteroid2.png" />
     <Content Include="images\awward-reward-cup-win-first-place_108578.ico" />
     <Content Include="images\Earth.png" />
     <Content Include="images\Jupiter.png" />
@@ -207,6 +211,7 @@
     <Content Include="images\planetSpeedMain.jpg" />
     <Content Include="images\planetSpeedMain2.jpg" />
     <Content Include="images\Saturn.png" />
+    <Content Include="images\ship.png" />
     <Content Include="images\ss.jpg" />
     <Content Include="images\stars.jpg" />
     <Content Include="images\sunMain.gif" />
