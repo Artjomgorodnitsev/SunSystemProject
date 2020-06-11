@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NameFrm));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,9 +52,9 @@
             this.label1.Location = new System.Drawing.Point(50, 79);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 19);
+            this.label1.Size = new System.Drawing.Size(117, 19);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Твоё имя:";
+            this.label1.Text = "Введите имя:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
@@ -91,9 +92,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NameFrm";
-            this.Text = "Ваше имя";
+            this.Text = "Изменение имени";
             this.Load += new System.EventHandler(this.name_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
