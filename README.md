@@ -4,7 +4,7 @@
 В начале нас встречает главная форма, где мы присваиваем label, то что он родитель picturebox, что бы в будующем сделать их прозрачными на picturebox.
 
 
-public MainFrm()
+        public MainFrm()
         {
             InitializeComponent();
             label4.Parent = pictureBox1;
@@ -167,9 +167,42 @@ public MainFrm()
         Rectangle uran = new Rectangle(-200, -200, 102, 101);
         Rectangle neptun = new Rectangle(-200, -200, 87, 88);
         Rectangle pluton = new Rectangle(-200, -200, 38, 38);
+ 
+ 
+Тут прописаны 3 функции для кнопок. Функции- при нажатии на кнопку, при движение курсора и при отпускании кнопки.
+
+        public FormPlanetSpeed()
+        {
+            InitializeComponent();
+            pictureBox1.MouseDown += PictureBox1_MouseDown;
+            pictureBox1.MouseUp += PictureBox1_MouseUp;
+            pictureBox1.MouseMove += PictureBox1_MouseMove;
+
+            labelEarth.Parent = pictureBox1;
+            labelMercury.Parent = pictureBox1;
+            labelVenera.Parent = pictureBox1;
+            labelMars.Parent = pictureBox1;
+            labelJupiter.Parent = pictureBox1;
+            labelSaturn.Parent = pictureBox1;
+            labelUran.Parent = pictureBox1;
+            labelNeptun.Parent = pictureBox1;
+            labelPluton.Parent = pictureBox1;
+            label2.Parent = pictureBox1;
+            
+Тут задаются картинки из ресурсов, что бы проект можно было открывать на разных компьютерах не меняя постоянно путь до картинок
+
+            img1 = Resources.earthSpeed;
+            img2 = Resources.merkurySpeed;
+            img3 = Resources.veneraSpeed;
+            img4 = Resources.marsSpeed;
+            img5 = Resources.upiterSpeed;
+            img6 = Resources.saturnSpeed;
+            img7 = Resources.uranSpeed;
+            img8 = Resources.neptunSpeed;
+            img9 = Resources.plutonSpeed;
+        } 
         
-        
-Данная функция для считывания координаты планеты и куда была перемещена планета когда кнопка отпускается.
+Данная функция для считывания координаты планеты, когда кнопка мыши нажимается.
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -183,7 +216,56 @@ public MainFrm()
                     EarthY = e.Y - earth.Y;
                 }
             }
-            
+         }
+         
+Функция для движения планеты. Если StatusDone=false, то планета может быть перемещена, в противном случае она будет статичная и невозможна для перемещения.
+
+         private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (StatusDone == false)
+            {
+                if (EarthClicked)
+                {
+                    earth.X = e.X - EarthX;
+                    earth.Y = e.Y - EarthY;
+                }
+            } 
+        }
+        
+        pictureBox1.Invalidate();
+ 
+Данная функция для считывания координаты планеты и куда была перемещена планета когда кнопка отпускается. 
+ 
+    private async void PictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (((labelEarth.Location.X < earth.X + earth.Width) && (labelEarth.Location.X > earth.X))
+                && ((labelEarth.Location.Y < earth.Y + earth.Height) && (labelEarth.Location.Y > earth.Y)))
+            {
+                StatusDone = true;
+                earth.X = 394;
+                earth.Y = 231;
+            }
+        }
+ 
+ Когда все статусы выполнены, то игра заканчивается и сохроняется в БД.
+ 
+        if (StatusDone && StatusDone2 && StatusDone3 && StatusDone4 &&
+                StatusDone5 && StatusDone6 && StatusDone7 && StatusDone8 &&
+                StatusDone9)
+            {
+                await SaveGame();
+            }
+ 
+ Проверка для повторного перемещения планеты, если она ещё не статичная.
+ 
+        if (EarthClicked)
+            {
+                LastClicked = 1;
+                X = earth.X;
+                Y = earth.Y;
+            }
+        EarthClicked = false;
+ 
  
 Функция на кнопку для выхода из игры "Расставить планеты на скорость"
  
@@ -191,5 +273,31 @@ public MainFrm()
         {
             this.Close();
         }
+        
+Функция для кнопки начатия игры. При нажатии на кнопку, в этой функции включается таймер и планеты появляются в случайном месте в picturebox.        
+        
+        private void buttonGameStart_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Resources.planetSpeedSunSystemCutRus;
+            timer1.Enabled = true;
+            buttonGameStart.Visible = false;
 
+            Random rand = new Random();
+            X = rand.Next(pictureBox1.Width - 100);
+            Y = rand.Next(pictureBox1.Height - 400);
+            earth.Location = new Point(X, Y);
+            earth.Size = new Size(91, 92);
+            StatusDone = false;
+          } 
 
+Таймер для игры
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            _gameDurationSec += 1;
+
+            var t = TimeSpan.FromSeconds(_gameDurationSec);
+            var answer = $"{t.Hours:D2}:{t.Minutes:D2}:{t.Seconds:D2}";
+
+            labelTime.Text = answer;
+        }
