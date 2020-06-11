@@ -301,3 +301,112 @@
 
             labelTime.Text = answer;
         }
+
+
+Теперь переходим к форме для введения имени пользователя
+
+private readonly MainFrm _mainForm;
+
+        public NameFrm()
+        {
+            InitializeComponent();
+        }
+
+        public NameFrm(Form mainForm)
+        {
+            _mainForm = mainForm as MainFrm;
+            InitializeComponent();
+        }
+        
+        
+ В форме пользователя прописана функция для кнопки подтверждения имени. Когда кнопка нажата, то имя сохраняется в БД
+ 
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            if (label2.Text != null)
+            {
+                label2.Text = @"";
+            }
+
+            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                var command = new SqlCommand("INSERT INTO [Records] (Name) VALUES (@Name)",
+                    await MainFrm.GetSqlConnection());
+                command.Parameters.AddWithValue("Name", textBox1.Text);
+
+                await command.ExecuteNonQueryAsync();
+                MainFrm.UserId = textBox1.Text;
+                await _mainForm.LoadName();
+                Close();
+            }
+            else
+            {
+                label2.Text = @"Введите своё имя!";
+            }
+        }
+        
+        
+Далее переходим к форме с рекордами пользователей.
+
+        public FormResult()
+        {
+            InitializeComponent();
+        }
+
+Сразу как мы загружаем эту форму, нам открывается большая таблица с именами пользователей и их рекордами из БД.
+
+        private async void FormResult_Load(object sender, EventArgs e)
+        {
+            listBox2.Visible = true;
+            listBox3.Visible = true;
+            listBox4.Visible = true;
+            listBox5.Visible = true;
+            listBox6.Visible = true;
+            listBox7.Visible = true;
+            var connectionString = ConfigurationManager.ConnectionStrings["SQLConnectionString01"];
+
+            _sqlConnection = new SqlConnection(connectionString.ToString());
+
+            await _sqlConnection.OpenAsync();
+
+            SqlDataReader sqlReader = null;
+
+            var command = new SqlCommand("SELECT * FROM[Records]", _sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
+
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]));
+                    listBox2.Items.Add(Convert.ToString(sqlReader["Level"]));
+                    listBox3.Items.Add(Convert.ToString(sqlReader["Points"]));
+                    listBox4.Items.Add(Convert.ToString(sqlReader["CorrectAnswer"]));
+                    listBox5.Items.Add(Convert.ToString(sqlReader["IncorrectAnswer"]));
+                    listBox6.Items.Add(Convert.ToString(sqlReader["Date"]));
+                    listBox7.Items.Add(Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                sqlReader?.Close();
+            }
+
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "databaseSunSystemDataSet1.Records".
+            // При необходимости она может быть перемещена или удалена.
+            //this.recordsTableAdapter.Fill(this.databaseSunSystemDataSet1.Records);
+        }
+        
+        
+ При закрытии формы рекордов, с формой закрывается и подключение к БД
+ 
+    private void FormResult_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_sqlConnection != null && _sqlConnection.State != ConnectionState.Closed)
+                _sqlConnection.Close();
+        }
