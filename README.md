@@ -413,9 +413,39 @@ private readonly MainFrm _mainForm;
 
 
 
+Функция для сортировки в листбоксах рекордов.
 
+        private async void label6_Click(object sender, EventArgs e)
+        {
+            clear();
+            SqlDataReader sqlReader = null;
+            SqlCommand command =
+                new SqlCommand("SELECT * FROM[Records] ORDER BY[IncorrectAnswer] DESC", _sqlConnection);
+            try
+            {
+                sqlReader = await command.ExecuteReaderAsync();
 
-----------------------Тут должна быть середина кода "рекорды" и его пояснения-----------------------------
+                while (await sqlReader.ReadAsync())
+                {
+                    listBox1.Items.Add(Convert.ToString(sqlReader["Name"]));
+                    listBox2.Items.Add(Convert.ToString(sqlReader["Level"]));
+                    listBox3.Items.Add(Convert.ToString(sqlReader["Points"]));
+                    listBox4.Items.Add(Convert.ToString(sqlReader["CorrectAnswer"]));
+                    listBox5.Items.Add(Convert.ToString(sqlReader["IncorrectAnswer"]));
+                    listBox6.Items.Add(Convert.ToString(sqlReader["Date"]));
+                    listBox7.Items.Add(Convert.ToString(sqlReader["Time"]));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                sqlReader?.Close();
+            }
+        }
 
 
 
