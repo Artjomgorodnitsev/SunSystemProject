@@ -167,3 +167,29 @@ public MainFrm()
         Rectangle uran = new Rectangle(-200, -200, 102, 101);
         Rectangle neptun = new Rectangle(-200, -200, 87, 88);
         Rectangle pluton = new Rectangle(-200, -200, 38, 38);
+        
+        
+Данная функция для считывания координаты планеты и куда была перемещена планета когда кнопка отпускается.
+
+        private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if ((e.X < earth.X + earth.Width) && (e.X > earth.X))
+            {
+                if ((e.Y < earth.Y + earth.Height) && (e.Y > earth.Y))
+                {
+                    EarthClicked = true;
+
+                    EarthX = e.X - earth.X;
+                    EarthY = e.Y - earth.Y;
+                }
+            }
+            
+ 
+Функция на кнопку для выхода из игры "Расставить планеты на скорость"
+ 
+        private void buttonExitForm1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
