@@ -410,3 +410,71 @@ private readonly MainFrm _mainForm;
             if (_sqlConnection != null && _sqlConnection.State != ConnectionState.Closed)
                 _sqlConnection.Close();
         }
+
+
+
+
+
+----------------------Тут должна быть середина кода "рекорды" и его пояснения-----------------------------
+
+
+
+
+
+
+Функции дляя переключений между листбоксами, для отображения разных рекордов из разных игр.
+
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox2.Visible = true;
+            listBox3.Visible = true;
+            listBox4.Visible = true;
+            listBox5.Visible = true;
+            listBox6.Visible = true;
+            listBox7.Visible = true;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox2.Visible = true;
+            listBox3.Visible = true;
+            listBox4.Visible = false;
+            listBox5.Visible = false;
+            listBox6.Visible = false;
+            listBox7.Visible = false;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox2.Visible = false;
+            listBox3.Visible = false;
+            listBox4.Visible = true;
+            listBox5.Visible = true;
+            listBox6.Visible = false;
+            listBox7.Visible = false;
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            listBox2.Visible = false;
+            listBox3.Visible = false;
+            listBox4.Visible = false;
+            listBox5.Visible = false;
+            listBox6.Visible = true;
+            listBox7.Visible = true;
+        }
+        
+        
+Функция для очистки листбоксов после переключения между ними 
+ 
+        private void clear()
+        {
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
+            listBox4.Items.Clear();
+            listBox5.Items.Clear();
+            listBox6.Items.Clear();
+            listBox7.Items.Clear();
+        }
