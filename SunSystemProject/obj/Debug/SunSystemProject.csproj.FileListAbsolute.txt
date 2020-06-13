@@ -47,3 +47,8 @@ C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\SunSystemP
 C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.csproj.CoreCompileInputs.cache
 C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.exe
 C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.pdb
+C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\bin\Debug\Interop.WMPLib.dll
+C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\Interop.WMPLib.dll
+C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.csproj.ResolveComReference.cache

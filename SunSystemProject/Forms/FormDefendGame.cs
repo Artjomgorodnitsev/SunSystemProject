@@ -30,17 +30,6 @@ namespace SunSystemProject.Forms
  
         Random GetRandom = new Random();
 
-        
-
-        private void FormDefendGame_Load(object sender, EventArgs e)
-        {
-            label1.Text = "Score: " + score.ToString();
-        }
-
-        private void buttonExitForm1_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void FormDefendGame_Paint(object sender, PaintEventArgs e)
         {
@@ -71,7 +60,6 @@ namespace SunSystemProject.Forms
             backgroundHorizontal -= 3;
             backgroundHorizontal2 -= 3;
         }
-
         private void AsteroidAlive()
         {
             for (int i = 0; i <= 4; i++)
@@ -79,7 +67,6 @@ namespace SunSystemProject.Forms
                 asteroidAlive[i] = false;
             }
         }
-
         private void AsteroidsGenerate(int i)
         {
             asteroidsHeightWidth[i] = GetRandom.Next(30, 130);
@@ -93,9 +80,11 @@ namespace SunSystemProject.Forms
             asteroidsHorizontal[i] -= asteroidSpeed[i];
         }
 
-        
 
-
+        private void FormDefendGame_Load(object sender, EventArgs e)
+        {
+            label1.Text = "Score: " + score.ToString();
+        }
         private void SetSceneBorders()
         {
             if (shipHorizontal <= 10)
@@ -115,9 +104,6 @@ namespace SunSystemProject.Forms
                 shipVertical = 548;
             }
         }
-
-
-
         private void ShipExplosionSound()
         {
             SoundPlayer shipExplosion = new SoundPlayer(@"shipExplosion.wav");
@@ -136,47 +122,67 @@ namespace SunSystemProject.Forms
             explosionSound.Play();
         }
 
-        private void FormDefendGame_KeyDown(object sender, KeyEventArgs e)
+        private void buttonExitForm1_Click(object sender, EventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.Left:
-                    shipHorizontal -= 7;
-                    Defeat();
-                    SetSceneBorders();
-                    break;
-                case Keys.Right:
-                    shipHorizontal += 7;
-                    Defeat();
-                    SetSceneBorders();
-                    break;
-                case Keys.Up:
-                    shipVertical -= 7;
-                    Defeat();
-                    SetSceneBorders();
-                    break;
-                case Keys.Down:
-                    shipVertical += 7;
-                    Defeat();
-                    SetSceneBorders();
-                    break;
-                case Keys.Escape:
-                    Exit();
-                    break;
-                case Keys.Space:
-                    if (laserHorizontal < 1024)
-                    {
+            Close();
+        }
 
-                    }
-                    else
-                    {
-                        LaserSound();
-                        laserHorizontal = shipHorizontal + 60;
-                        laserVertical = shipVertical + 15;
-                        laserImage = "laserOn.png";
-                    }
-                    break;
+        private void BackgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void Timer1_Tick_1(object sender, EventArgs e)
+        {
+            Defeat();
+            for (int i = 0; i <= 4; i++)
+            {
+                if (asteroidAlive[i] == false)
+                {
+                    AsteroidsGenerate(i);
+
+                }
+                else
+                {
+                    asteroidsHorizontal[i] -= asteroidSpeed[i];
+                }
             }
+
+            for (int i = 0; i <= 4; i++)
+            {
+                if (asteroidsHorizontal[i] < 0 - asteroidsHeightWidth[i])
+                {
+                    AsteroidsGenerate(i);
+                }
+                else if ((laserImage == "laserOn.png") && (laserHorizontal >= asteroidsHorizontal[i] - 30))
+                {
+                    if ((laserVertical >= asteroidsVertical[i] - 30) && (laserVertical <= asteroidsVertical[i] + asteroidsHeightWidth[i]))
+                    {
+                        laserAchievesGoal = true;
+                        asteroidAlive[i] = false;
+                        asteroidImage = "objectOff.png";
+                        AsteroidExplosionSound();
+                        AsteroidsGenerate(i);
+                        score += 1;
+                        label1.Text = "Score: " + score.ToString();
+                    }
+                }
+            }
+
+
+
+
+            if ((laserHorizontal > 1024) || (laserAchievesGoal == true))
+            {
+                laserImage = "objectOff.png";
+                laserAchievesGoal = false;
+            }
+            else
+            {
+                laserHorizontal += 150;
+            }
+            BackgroundMoving();
+            Invalidate();
         }
 
         private void Exit()
@@ -234,62 +240,57 @@ namespace SunSystemProject.Forms
                 }
             }
         }
+        private void FormDefendGame_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    shipHorizontal -= 7;
+                    Defeat();
+                    SetSceneBorders();
+                    break;
+                case Keys.Right:
+                    shipHorizontal += 7;
+                    Defeat();
+                    SetSceneBorders();
+                    break;
+                case Keys.Up:
+                    shipVertical -= 7;
+                    Defeat();
+                    SetSceneBorders();
+                    break;
+                case Keys.Down:
+                    shipVertical += 7;
+                    Defeat();
+                    SetSceneBorders();
+                    break;
+                case Keys.Escape:
+                    Exit();
+                    break;
+                case Keys.Space:
+                    if (laserHorizontal < 1024)
+                    {
+
+                    }
+                    else
+                    {
+                        LaserSound();
+                        laserHorizontal = shipHorizontal + 60;
+                        laserVertical = shipVertical + 15;
+                        laserImage = "laserOn.png";
+                    }
+                    break;
+            }
+        }
 
 
 
-        
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            Defeat();
-            for (int i = 0; i <= 4; i++)
-            {
-                if (asteroidAlive[i] == false)
-                {
-                    AsteroidsGenerate(i);
-
-                }
-                else
-                {
-                    asteroidsHorizontal[i] -= asteroidSpeed[i];
-                }
-            }
-
-            for (int i = 0; i <= 4; i++)
-            {
-                if (asteroidsHorizontal[i] < 0 - asteroidsHeightWidth[i])
-                {
-                    AsteroidsGenerate(i);
-                }
-                else if ((laserImage == "laserOn.png") && (laserHorizontal >= asteroidsHorizontal[i] - 30))
-                {
-                    if ((laserVertical >= asteroidsVertical[i] - 30) && (laserVertical <= asteroidsVertical[i] + asteroidsHeightWidth[i]))
-                    {
-                        laserAchievesGoal = true;
-                        asteroidAlive[i] = false;
-                        asteroidImage = "objectOff.png";
-                        AsteroidExplosionSound();
-                        AsteroidsGenerate(i);
-                        score += 1;
-                        label1.Text = "Score: " + score.ToString();
-                    }
-                }
-            }
-
-
-
-            if ((laserHorizontal > 1024) || (laserAchievesGoal == true))
-            {
-                laserImage = "objectOff.png";
-                laserAchievesGoal = false;
-            }
-            else
-            {
-                laserHorizontal += 150;
-            }
-            BackgroundMoving();
-            Invalidate();
+            
         }
         public FormDefendGame()
         {
