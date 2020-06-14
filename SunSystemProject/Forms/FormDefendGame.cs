@@ -83,7 +83,7 @@ namespace SunSystemProject.Forms
 
         private void FormDefendGame_Load(object sender, EventArgs e)
         {
-            label1.Text = "Score: " + score.ToString();
+            label1.Text = "Очки: " + score.ToString();
         }
         private void SetSceneBorders()
         {
@@ -104,7 +104,7 @@ namespace SunSystemProject.Forms
                 shipVertical = 548;
             }
         }
-        private void ShipExplosionSound()
+        /*private void ShipExplosionSound()
         {
             SoundPlayer shipExplosion = new SoundPlayer(@"shipExplosion.wav");
             shipExplosion.Play();
@@ -120,7 +120,7 @@ namespace SunSystemProject.Forms
         {
             SoundPlayer explosionSound = new SoundPlayer(@"asteroidExplosion.wav");
             explosionSound.Play();
-        }
+        }*/
 
         private void buttonExitForm1_Click(object sender, EventArgs e)
         {
@@ -161,10 +161,10 @@ namespace SunSystemProject.Forms
                         laserAchievesGoal = true;
                         asteroidAlive[i] = false;
                         asteroidImage = "objectOff.png";
-                        AsteroidExplosionSound();
+                        //AsteroidExplosionSound();
                         AsteroidsGenerate(i);
                         score += 1;
-                        label1.Text = "Score: " + score.ToString();
+                        label1.Text = "Очки: " + score.ToString();
                     }
                 }
             }
@@ -189,7 +189,7 @@ namespace SunSystemProject.Forms
         {
             DialogResult dialog = new DialogResult();
             timer1.Enabled = false;
-            dialog = MessageBox.Show("Are you sure?", "Close The Game", MessageBoxButtons.YesNo);
+            dialog = MessageBox.Show("Ты уверен?", "Закрыть игру", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
                 Environment.Exit(1);
@@ -212,11 +212,11 @@ namespace SunSystemProject.Forms
                     {
 
 
-                        ShipExplosionSound();
+                        //ShipExplosionSound();
                         ship = "objectOff.png";
                         timer1.Enabled = false;
                         DialogResult dialog = new DialogResult();
-                        dialog = MessageBox.Show("Do you want to try again?", "Your score is: " + score, MessageBoxButtons.YesNo);
+                        dialog = MessageBox.Show("Хочешь попробовать сыграть ещё?", "Твои очки: " + score, MessageBoxButtons.YesNo);
 
                         if (dialog == DialogResult.Yes)
                         {
@@ -234,7 +234,7 @@ namespace SunSystemProject.Forms
 
                         if (dialog == DialogResult.No)
                         {
-                            Environment.Exit(1);
+                            Close();
                         }
                     }
                 }
@@ -274,7 +274,7 @@ namespace SunSystemProject.Forms
                     }
                     else
                     {
-                        LaserSound();
+                        //LaserSound();
                         laserHorizontal = shipHorizontal + 60;
                         laserVertical = shipVertical + 15;
                         laserImage = "laserOn.png";
