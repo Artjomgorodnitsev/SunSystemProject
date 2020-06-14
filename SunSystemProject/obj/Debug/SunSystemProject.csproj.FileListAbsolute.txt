@@ -52,3 +52,13 @@ C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\bin\Debug\AxInterop.
 C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\Interop.WMPLib.dll
 C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Влад\Desktop\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.csproj.ResolveComReference.cache
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\bin\Debug\Interop.WMPLib.dll
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\obj\Debug\Interop.WMPLib.dll
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Aleks\source\repos\SunSystemProject\SunSystemProject\obj\Debug\SunSystemProject.csproj.ResolveComReference.cache
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\bin\Debug\Interop.WMPLib.dll
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\Interop.WMPLib.dll
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Aleks\source\repos\maks\SunSystem\SunSystemProject\obj\Debug\SunSystemProject.csproj.ResolveComReference.cache

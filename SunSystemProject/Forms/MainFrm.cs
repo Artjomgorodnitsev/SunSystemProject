@@ -152,17 +152,36 @@ namespace SunSystemProject.Forms
 
         public async Task LoadName()
         {
-            SqlDataReader sqlReader = null;
+            UserId = await GetName(null);
+            label29.Text = UserId;
+        }
 
-            var command = new SqlCommand("SELECT TOP 1 * FROM[Records] order by id desc", await GetSqlConnection());
+        public async Task<string> GetName(string name)
+        {
+            string result = null;
             try
-
             {
-                sqlReader = await command.ExecuteReaderAsync();
+                using var sqlConnection = await GetSqlConnection();
+                var sql = "SELECT TOP 1 * FROM [Records] {0} order by id desc";
+                string where = null;
+
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    where = "where Name=@Name";
+                }
+
+                sql = string.Format(sql, where);
+                var command = new SqlCommand(sql, sqlConnection);
+
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    command.Parameters.AddWithValue("Name", name);
+                }
+
+                using var sqlReader = await command.ExecuteReaderAsync();
                 while (await sqlReader.ReadAsync())
                 {
-                    label29.Text = Convert.ToString(sqlReader["Name"]);
-                    UserId = label29.Text;
+                    result = Convert.ToString(sqlReader["Name"]);
                 }
             }
             catch (Exception ex)
@@ -171,10 +190,7 @@ namespace SunSystemProject.Forms
                     MessageBoxIcon.Error);
             }
 
-            finally
-            {
-                sqlReader.Close();
-            }
+            return result;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

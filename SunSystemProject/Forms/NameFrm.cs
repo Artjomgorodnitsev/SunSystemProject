@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -24,35 +23,45 @@ namespace SunSystemProject.Forms
         {
         }
 
-        private async void name_Load(object sender, EventArgs e)
-        {
-            // var connectionString = ConfigurationManager.ConnectionStrings["SQLConnectionString01"];
-            // MainFrm.sqlConnection = new SqlConnection(connectionString.ToString());
-            // await MainFrm.sqlConnection.OpenAsync();
-        }
-
         private async void button1_Click(object sender, EventArgs e)
         {
-            if (label2.Text != null)
-            {
-                label2.Text = @"";
-            }
+            label2.Text = string.Empty;
 
-            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox1.Text))
+            var newName = textBox1.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(newName))
             {
-                var command = new SqlCommand("INSERT INTO [Records] (Name) VALUES (@Name)",
-                    await MainFrm.GetSqlConnection());
-                command.Parameters.AddWithValue("Name", textBox1.Text);
-
-                await command.ExecuteNonQueryAsync();
-                MainFrm.UserId = textBox1.Text;
-                await _mainForm.LoadName();
-                Close();
+                SaveName(newName);
             }
             else
             {
                 label2.Text = @"Введите своё имя!";
             }
+        }
+
+        private async void SaveName(string newName)
+        {
+            var existingName = await _mainForm.GetName(newName);
+            if (existingName == null)
+            {
+                using var sqlConnection = await MainFrm.GetSqlConnection();
+                var command = new SqlCommand("INSERT INTO [Records] (Name) VALUES (@newName)",
+                    sqlConnection);
+                command.Parameters.AddWithValue("newName", newName);
+                await command.ExecuteNonQueryAsync();
+
+                await _mainForm.LoadName();
+
+                Close();
+            }
+            else
+            {
+                label2.Text = @"Такое имя уже есть!";
+            }
+        }
+
+        private void NameFrm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
