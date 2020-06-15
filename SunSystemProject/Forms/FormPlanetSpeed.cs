@@ -11,6 +11,7 @@ namespace SunSystemProject.Forms
 {
     public partial class FormPlanetSpeed : Form
     {
+        string time = null;
         bool EarthClicked,
             MercuryClicked,
             VeneraClicked,
@@ -278,7 +279,7 @@ namespace SunSystemProject.Forms
             {
                 timer1.Enabled = false;
                 DialogResult dialog = new DialogResult();
-                dialog = MessageBox.Show("Хочешь попробовать сыграть ещё?", "Твоё время: " + labelTime, MessageBoxButtons.YesNo);
+                dialog = MessageBox.Show("Хочешь попробовать сыграть ещё?", "Твоё время: " + time, MessageBoxButtons.YesNo);
 
                 if (dialog == DialogResult.Yes)
                 {
@@ -509,6 +510,7 @@ namespace SunSystemProject.Forms
 
         private void buttonGameStart_Click(object sender, EventArgs e)
         {
+            _gameDurationSec = 0;
             pictureBox1.Image = Resources.planetSpeedSunSystemCutRus;
             timer1.Enabled = true;
             buttonGameStart.Visible = false;
@@ -569,6 +571,7 @@ namespace SunSystemProject.Forms
 
             var t = TimeSpan.FromSeconds(_gameDurationSec);
             var answer = $"{t.Hours:D2}:{t.Minutes:D2}:{t.Seconds:D2}";
+            time = $"{t.Hours:D2}:{t.Minutes:D2}:{t.Seconds:D2}";
 
             labelTime.Text = answer;
         }

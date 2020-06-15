@@ -31,7 +31,7 @@ namespace SunSystemProject.Forms
 
             SqlDataReader sqlReader = null;
 
-            var command = new SqlCommand("SELECT * FROM[Records]", _sqlConnection);
+            var command = new SqlCommand("SELECT  TOP 5 * FROM[Records] order by id desc", _sqlConnection);
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
@@ -76,7 +76,7 @@ namespace SunSystemProject.Forms
         {
             clear();
             SqlDataReader sqlReader = null;
-            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Level] DESC", _sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM[Records] ORDER BY[Level] DESC", _sqlConnection);
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
@@ -107,7 +107,7 @@ namespace SunSystemProject.Forms
         {
             clear();
             SqlDataReader sqlReader = null;
-            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Points] DESC", _sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM[Records] ORDER BY[Points] DESC", _sqlConnection);
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
@@ -138,7 +138,7 @@ namespace SunSystemProject.Forms
         {
             clear();
             SqlDataReader sqlReader = null;
-            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[IncorrectAnswer] ASC", _sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM[Records] ORDER BY[IncorrectAnswer] ASC", _sqlConnection);
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
@@ -170,7 +170,7 @@ namespace SunSystemProject.Forms
             clear();
             SqlDataReader sqlReader = null;
             SqlCommand command =
-                new SqlCommand("SELECT * FROM[Records] ORDER BY[IncorrectAnswer] DESC", _sqlConnection);
+                new SqlCommand("SELECT TOP 5 * FROM[Records] ORDER BY[IncorrectAnswer] DESC", _sqlConnection);
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
@@ -201,7 +201,7 @@ namespace SunSystemProject.Forms
         {
             clear();
             SqlDataReader sqlReader = null;
-            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Date] DESC", _sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM[Records] ORDER BY[Date] DESC", _sqlConnection);
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
@@ -232,7 +232,7 @@ namespace SunSystemProject.Forms
         {
             clear();
             SqlDataReader sqlReader = null;
-            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Time]", _sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM[Records] ORDER BY[Time]", _sqlConnection);
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
@@ -263,7 +263,7 @@ namespace SunSystemProject.Forms
         {
             clear();
             SqlDataReader sqlReader = null;
-            SqlCommand command = new SqlCommand("SELECT * FROM[Records] ORDER BY[Name]", _sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM[Records] ORDER BY[Name]", _sqlConnection);
             try
             {
                 sqlReader = await command.ExecuteReaderAsync();
@@ -300,7 +300,7 @@ namespace SunSystemProject.Forms
         {
             clear();
             SqlDataReader sqlReader = null;
-            SqlCommand command = new SqlCommand("SELECT * FROM[Records] WHERE[Name]=@Name", _sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT TOP 5 * FROM[Records] WHERE[Name]=@Name", _sqlConnection);
             command.Parameters.AddWithValue("Name", textBox1.Text);
             try
             {

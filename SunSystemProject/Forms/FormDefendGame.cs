@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Media;
 using System.Text;
@@ -26,7 +27,7 @@ namespace SunSystemProject.Forms
 
 
         private static int earthHorizontal = 30, earthVertical = 280, backgroundHorizontal = 0;
-        private static int score = 0;
+        public static int score = 0;
  
         Random GetRandom = new Random();
 
@@ -154,7 +155,7 @@ namespace SunSystemProject.Forms
             Invalidate();
         }
 
-        private void Exit()
+        private async void Exit()
         {
             DialogResult dialog = new DialogResult();
             timer1.Enabled = false;
@@ -171,7 +172,7 @@ namespace SunSystemProject.Forms
 
 
 
-        private void Defeat()
+        private async void Defeat()
         {
             for (int i = 0; i <= 4; i++)
             {
@@ -187,10 +188,10 @@ namespace SunSystemProject.Forms
 
                         if (dialog == DialogResult.Yes)
                         {
+                            score = 0;
                             earthHorizontal = 30; earthVertical = 280;
                             AsteroidsGenerate(i);
                             earth = "Earth.png";
-                            score = 0;
                             label1.Text = "Очки: " + score.ToString();
                             for (i = 0; i <= 4; i++)
                             {
@@ -201,6 +202,50 @@ namespace SunSystemProject.Forms
 
                         if (dialog == DialogResult.No)
                         {
+                            var command = new SqlCommand("UPDATE [Records] set Points = @Score  where Name = @Name",
+                            await MainFrm.GetSqlConnection());
+                            command.Parameters.AddWithValue("Score", score);
+                            command.Parameters.AddWithValue("Name", MainFrm.UserId);
+                            if (score >= 2)
+                            {
+                                var command1 = new SqlCommand("UPDATE [Records] set Level = @level  where Name = @Name",
+                                await MainFrm.GetSqlConnection());
+                                command1.Parameters.AddWithValue("level", 2);
+                                command1.Parameters.AddWithValue("Name", MainFrm.UserId);
+                            }
+                            if(score > 0)
+                            {
+                                var command2 = new SqlCommand("UPDATE [Records] set Level= @level  where Name = @Name",
+                                   await MainFrm.GetSqlConnection());
+                                command2.Parameters.AddWithValue("level", 1);
+                                command2.Parameters.AddWithValue("Name", MainFrm.UserId);
+                                await command2.ExecuteNonQueryAsync();
+                            }
+                            if (score >= 5)
+                            {
+                                var command3 = new SqlCommand("UPDATE [Records] set Level = @level  where Name = @Name",
+                                await MainFrm.GetSqlConnection());
+                                command3.Parameters.AddWithValue("level", 3);
+                                command3.Parameters.AddWithValue("Name", MainFrm.UserId);
+                                await command3.ExecuteNonQueryAsync();
+                            }
+                            if (score == 0)
+                            {
+                                var command4 = new SqlCommand("UPDATE [Records] set Level = @level  where Name = @Name",
+                                await MainFrm.GetSqlConnection());
+                                command4.Parameters.AddWithValue("level", 0);
+                                command4.Parameters.AddWithValue("Name", MainFrm.UserId);
+                                await command4.ExecuteNonQueryAsync();
+                            }
+                            if (score >= 10)
+                            {
+                                var command3 = new SqlCommand("UPDATE [Records] set Level = @level  where Name = @Name",
+                                await MainFrm.GetSqlConnection());
+                                command3.Parameters.AddWithValue("level", 4);
+                                command3.Parameters.AddWithValue("Name", MainFrm.UserId);
+                                await command3.ExecuteNonQueryAsync();
+                            }
+                            await command.ExecuteNonQueryAsync();
                             Close();
                         }
                     }
