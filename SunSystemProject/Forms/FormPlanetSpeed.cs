@@ -99,7 +99,7 @@ namespace SunSystemProject.Forms
             labelUran.Parent = pictureBox1;
             labelNeptun.Parent = pictureBox1;
             labelPluton.Parent = pictureBox1;
-            label2.Parent = pictureBox1;
+            //label2.Parent = pictureBox1;
 
             img1 = Resources.earthSpeed;
             img2 = Resources.merkurySpeed;
@@ -276,6 +276,20 @@ namespace SunSystemProject.Forms
                 StatusDone5 && StatusDone6 && StatusDone7 && StatusDone8 &&
                 StatusDone9)
             {
+                timer1.Enabled = false;
+                DialogResult dialog = new DialogResult();
+                dialog = MessageBox.Show("Хочешь попробовать сыграть ещё?", "Твоё время: " + labelTime, MessageBoxButtons.YesNo);
+
+                if (dialog == DialogResult.Yes)
+                {
+                    buttonGameStart.Visible = true;
+
+                }
+
+                if (dialog == DialogResult.No)
+                {
+                    Close();
+                }
                 await SaveGame();
             }
 
@@ -358,8 +372,8 @@ namespace SunSystemProject.Forms
         {
             date = DateTime.Now;
             timer1.Enabled = false;
-            label2.Text = @"Все планеты расставлены верно";
-            label2.Visible = true;
+            //label2.Text = @"Все планеты расставлены верно";
+            //label2.Visible = false;
 
             var command = new SqlCommand("UPDATE [Records] set Time = @Time  where Name = @Name",
                 await MainFrm.GetSqlConnection());

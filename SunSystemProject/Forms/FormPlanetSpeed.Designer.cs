@@ -46,9 +46,8 @@
             this.labelUran = new System.Windows.Forms.Label();
             this.labelNeptun = new System.Windows.Forms.Label();
             this.labelPluton = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize) (this.fileSystemWatcher1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonGameStart
@@ -56,7 +55,7 @@
             this.buttonGameStart.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonGameStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonGameStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonGameStart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.buttonGameStart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonGameStart.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonGameStart.Location = new System.Drawing.Point(971, 580);
             this.buttonGameStart.Name = "buttonGameStart";
@@ -71,7 +70,7 @@
             this.buttonExitForm1.BackColor = System.Drawing.Color.LightCoral;
             this.buttonExitForm1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonExitForm1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonExitForm1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.buttonExitForm1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonExitForm1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonExitForm1.Location = new System.Drawing.Point(1213, 580);
             this.buttonExitForm1.Name = "buttonExitForm1";
@@ -89,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(23, 580);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 22);
@@ -101,14 +100,14 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // labeltime
+            // labelTime
             // 
             this.labelTime.AutoSize = true;
             this.labelTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelTime.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.labelTime.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelTime.Location = new System.Drawing.Point(118, 583);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(60, 19);
+            this.labelTime.Size = new System.Drawing.Size(0, 19);
             this.labelTime.TabIndex = 8;
             // 
             // pictureBox1
@@ -196,24 +195,12 @@
             this.labelPluton.Size = new System.Drawing.Size(35, 13);
             this.labelPluton.TabIndex = 17;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(276, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(788, 437);
-            this.label2.TabIndex = 18;
-            this.label2.Visible = false;
-            // 
             // FormPlanetSpeed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1296, 621);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.labelPluton);
             this.Controls.Add(this.labelNeptun);
             this.Controls.Add(this.labelUran);
@@ -228,21 +215,21 @@
             this.Controls.Add(this.buttonExitForm1);
             this.Controls.Add(this.buttonGameStart);
             this.Controls.Add(this.pictureBox1);
-            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPlanetSpeed";
             this.Text = "Расставление планет на скорость";
             this.Load += new System.EventHandler(this.FormPlanetSpeed_Load);
-            ((System.ComponentModel.ISupportInitialize) (this.fileSystemWatcher1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private System.Windows.Forms.Button buttonExitForm1;
         private System.Windows.Forms.Button buttonGameStart;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelEarth;
         private System.Windows.Forms.Label labelJupiter;
         private System.Windows.Forms.Label labelMars;

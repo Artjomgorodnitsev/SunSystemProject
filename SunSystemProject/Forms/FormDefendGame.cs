@@ -20,12 +20,12 @@ namespace SunSystemProject.Forms
         private int[] asteroidSpeed = new int[5];
 
 
-        private string laserImage = "objectOff.png", ship = "ship.png";
-        private static int laserHorizontal = shipHorizontal + 60, laserVertical = shipVertical + 15;
-        private bool laserAchievesGoal = false;
+        private string moonImage = "objectOff.png", earth = "Earth.png";
+        private static int moonHorizontal = earthHorizontal + 60, moonVertical = earthVertical + 15;
+        private bool moonAchievesGoal = false;
 
 
-        private static int shipHorizontal = 30, shipVertical = 280, backgroundHorizontal = 0, backgroundHorizontal2 = 1580;
+        private static int earthHorizontal = 30, earthVertical = 280, backgroundHorizontal = 0;
         private static int score = 0;
  
         Random GetRandom = new Random();
@@ -33,32 +33,17 @@ namespace SunSystemProject.Forms
 
         private void FormDefendGame_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawImage(new Bitmap("background.jpg"), backgroundHorizontal, 0, 1680, 640);
-            e.Graphics.DrawImage(new Bitmap("background2.jpg"), backgroundHorizontal2, 0, 1680, 640);
+            e.Graphics.DrawImage(new Bitmap("kosmos2.jpg"), backgroundHorizontal, 0, 1200, 800);
 
-            e.Graphics.DrawImage(new Bitmap(ship), shipHorizontal, shipVertical, 60, 60);
+            e.Graphics.DrawImage(new Bitmap(earth), earthHorizontal, earthVertical, 100, 100);
 
-            e.Graphics.DrawImage(new Bitmap(laserImage), laserHorizontal, laserVertical, 30, 30);
+            e.Graphics.DrawImage(new Bitmap(moonImage), moonHorizontal, moonVertical, 30, 30);
 
-            asteroidImage = "asteroid1.png";
+            asteroidImage = "asteroid3.png";
             for (int i = 0; i <= 4; i++)
             {
                 e.Graphics.DrawImage(new Bitmap(asteroidImage), asteroidsHorizontal[i], asteroidsVertical[i], asteroidsHeightWidth[i], asteroidsHeightWidth[i]);
             }
-        }
-        private void BackgroundMoving()
-        {
-            if (backgroundHorizontal < -1580)
-            {
-                backgroundHorizontal = 1580;
-            }
-            if (backgroundHorizontal2 < -1580)
-            {
-                backgroundHorizontal2 = 1580;
-            }
-
-            backgroundHorizontal -= 3;
-            backgroundHorizontal2 -= 3;
         }
         private void AsteroidAlive()
         {
@@ -83,44 +68,30 @@ namespace SunSystemProject.Forms
 
         private void FormDefendGame_Load(object sender, EventArgs e)
         {
+            
             label1.Text = "Очки: " + score.ToString();
+            
         }
         private void SetSceneBorders()
         {
-            if (shipHorizontal <= 10)
+            if (earthHorizontal <= 10)
             {
-                shipHorizontal = 11;
+                earthHorizontal = 11;
             }
-            else if (shipHorizontal >= 940)
+            else if (earthHorizontal >= 200)
             {
-                shipHorizontal = 938;
+                earthHorizontal = 198;
             }
-            else if (shipVertical <= 10)
+            else if (earthVertical <= 10)
             {
-                shipVertical = 15;
+                earthVertical = 15;
             }
-            else if (shipVertical >= 550)
+            else if (earthVertical >= 480)
             {
-                shipVertical = 548;
+                earthVertical = 478;
             }
         }
-        /*private void ShipExplosionSound()
-        {
-            SoundPlayer shipExplosion = new SoundPlayer(@"shipExplosion.wav");
-            shipExplosion.Play();
-        }
-
-        private void LaserSound()
-        {
-            SoundPlayer laserSound = new SoundPlayer(@"laser.wav");
-            laserSound.Play();
-        }
-
-        private void AsteroidExplosionSound()
-        {
-            SoundPlayer explosionSound = new SoundPlayer(@"asteroidExplosion.wav");
-            explosionSound.Play();
-        }*/
+        
 
         private void buttonExitForm1_Click(object sender, EventArgs e)
         {
@@ -154,14 +125,13 @@ namespace SunSystemProject.Forms
                 {
                     AsteroidsGenerate(i);
                 }
-                else if ((laserImage == "laserOn.png") && (laserHorizontal >= asteroidsHorizontal[i] - 30))
+                else if ((moonImage == "moon.png") && (moonHorizontal >= asteroidsHorizontal[i] - 30))
                 {
-                    if ((laserVertical >= asteroidsVertical[i] - 30) && (laserVertical <= asteroidsVertical[i] + asteroidsHeightWidth[i]))
+                    if ((moonVertical >= asteroidsVertical[i] - 30) && (moonVertical <= asteroidsVertical[i] + asteroidsHeightWidth[i]))
                     {
-                        laserAchievesGoal = true;
+                        moonAchievesGoal = true;
                         asteroidAlive[i] = false;
                         asteroidImage = "objectOff.png";
-                        //AsteroidExplosionSound();
                         AsteroidsGenerate(i);
                         score += 1;
                         label1.Text = "Очки: " + score.ToString();
@@ -172,16 +142,15 @@ namespace SunSystemProject.Forms
 
 
 
-            if ((laserHorizontal > 1024) || (laserAchievesGoal == true))
+            if ((moonHorizontal > 1024) || (moonAchievesGoal == true))
             {
-                laserImage = "objectOff.png";
-                laserAchievesGoal = false;
+                moonImage = "objectOff.png";
+                moonAchievesGoal = false;
             }
             else
             {
-                laserHorizontal += 150;
+                moonHorizontal += 150;
             }
-            BackgroundMoving();
             Invalidate();
         }
 
@@ -192,7 +161,7 @@ namespace SunSystemProject.Forms
             dialog = MessageBox.Show("Ты уверен?", "Закрыть игру", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                Environment.Exit(1);
+                Close();
             }
             else
             {
@@ -206,25 +175,23 @@ namespace SunSystemProject.Forms
         {
             for (int i = 0; i <= 4; i++)
             {
-                if (((shipHorizontal > asteroidsHorizontal[i] - 60)) && ((shipVertical > asteroidsVertical[i] - 60) && (shipVertical < asteroidsVertical[i] + asteroidsHeightWidth[i])))
+                if (((earthHorizontal > asteroidsHorizontal[i] - 60)) && ((earthVertical > asteroidsVertical[i] - 60) && (earthVertical < asteroidsVertical[i] + asteroidsHeightWidth[i])))
                 {
-                    if ((shipHorizontal < asteroidsHorizontal[i] + asteroidsHeightWidth[i]))
+                    if ((earthHorizontal < asteroidsHorizontal[i] + asteroidsHeightWidth[i]))
                     {
 
-
-                        //ShipExplosionSound();
-                        ship = "objectOff.png";
+                        earth = "objectOff.png";
                         timer1.Enabled = false;
                         DialogResult dialog = new DialogResult();
                         dialog = MessageBox.Show("Хочешь попробовать сыграть ещё?", "Твои очки: " + score, MessageBoxButtons.YesNo);
 
                         if (dialog == DialogResult.Yes)
                         {
-                            shipHorizontal = 30; shipVertical = 280;
+                            earthHorizontal = 30; earthVertical = 280;
                             AsteroidsGenerate(i);
-                            ship = "ship.png";
+                            earth = "Earth.png";
                             score = 0;
-                            label1.Text = "Score: " + score.ToString();
+                            label1.Text = "Очки: " + score.ToString();
                             for (i = 0; i <= 4; i++)
                             {
                                 asteroidAlive[i] = false;
@@ -245,22 +212,22 @@ namespace SunSystemProject.Forms
             switch (e.KeyCode)
             {
                 case Keys.Left:
-                    shipHorizontal -= 7;
+                    earthHorizontal -= 7;
                     Defeat();
                     SetSceneBorders();
                     break;
                 case Keys.Right:
-                    shipHorizontal += 7;
+                    earthHorizontal += 7;
                     Defeat();
                     SetSceneBorders();
                     break;
                 case Keys.Up:
-                    shipVertical -= 7;
+                    earthVertical -= 7;
                     Defeat();
                     SetSceneBorders();
                     break;
                 case Keys.Down:
-                    shipVertical += 7;
+                    earthVertical += 7;
                     Defeat();
                     SetSceneBorders();
                     break;
@@ -268,16 +235,15 @@ namespace SunSystemProject.Forms
                     Exit();
                     break;
                 case Keys.Space:
-                    if (laserHorizontal < 1024)
+                    if (moonHorizontal < 1024)
                     {
 
                     }
                     else
                     {
-                        //LaserSound();
-                        laserHorizontal = shipHorizontal + 60;
-                        laserVertical = shipVertical + 15;
-                        laserImage = "laserOn.png";
+                        moonHorizontal = earthHorizontal + 60;
+                        moonVertical = earthVertical + 15;
+                        moonImage = "moon.png";
                     }
                     break;
             }
