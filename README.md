@@ -189,7 +189,7 @@
             labelPluton.Parent = pictureBox1;
             label2.Parent = pictureBox1;
             
-Тут задаются картинки из ресурсов, что бы проект можно было открывать на разных компьютерах не меняя постоянно путь до картинок
+Тут задаются картинки из ресурсов, что бы проект можно было открывать на разных компьютерах не меняя постоянно путь до картинок.
 
             img1 = Resources.earthSpeed;
             img2 = Resources.merkurySpeed;
@@ -267,14 +267,14 @@
         EarthClicked = false;
  
  
-Функция на кнопку для выхода из игры "Расставить планеты на скорость"
+Функция на кнопку для выхода из игры "Расставить планеты на скорость".
  
         private void buttonExitForm1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         
-Функция для кнопки начатия игры. При нажатии на кнопку, в этой функции включается таймер и планеты появляются в случайном месте в picturebox.        
+Функция для кнопки "Начать игру". При нажатии на кнопку, в этой функции включается таймер и планеты появляются в случайном месте в picturebox.        
         
         private void buttonGameStart_Click(object sender, EventArgs e)
         {
@@ -290,7 +290,7 @@
             StatusDone = false;
           } 
 
-Таймер для игры
+Таймер для игры.
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
@@ -303,9 +303,9 @@
         }
 
 
-Теперь переходим к форме для введения имени пользователя
+Теперь переходим к форме для введения имени пользователя.
 
-private readonly MainFrm _mainForm;
+        private readonly MainFrm _mainForm;
 
         public NameFrm()
         {
@@ -319,7 +319,7 @@ private readonly MainFrm _mainForm;
         }
         
         
- В форме пользователя прописана функция для кнопки подтверждения имени. Когда кнопка нажата, то имя сохраняется в БД
+ В форме пользователя прописана функция для кнопки подтверждения имени. Когда кнопка нажата, то имя сохраняется в БД.
  
         private async void button1_Click(object sender, EventArgs e)
         {
@@ -507,4 +507,577 @@ private readonly MainFrm _mainForm;
             listBox5.Items.Clear();
             listBox6.Items.Clear();
             listBox7.Items.Clear();
+        }
+
+
+
+
+Форма защиты планеты.
+В начале создаем переменные для дальнейшего использования в коде.
+
+        private string asteroidImage;
+        private int[] asteroidsHorizontal = new int[5];
+        private int[] asteroidsVertical = new int[5];
+        private int[] asteroidsHeightWidth = new int[5];
+        private bool[] asteroidAlive = new bool[5];
+        private int[] asteroidSpeed = new int[5];
+
+
+        private string moonImage = "objectOff.png", earth = "Earth.png";
+        private static int moonHorizontal = earthHorizontal + 60, moonVertical = earthVertical + 15;
+        private bool moonAchievesGoal = false;
+
+
+        private static int earthHorizontal = 30, earthVertical = 280, backgroundHorizontal = 0;
+        private static int score = 0;
+ 
+        Random GetRandom = new Random();
+        
+        
+Функция, которая рисует все объекты в форме.
+
+
+        private void FormDefendGame_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawImage(new Bitmap("kosmos2.jpg"), backgroundHorizontal, 0, 1200, 800);
+
+            e.Graphics.DrawImage(new Bitmap(earth), earthHorizontal, earthVertical, 100, 100);
+
+            e.Graphics.DrawImage(new Bitmap(moonImage), moonHorizontal, moonVertical, 30, 30);
+
+            asteroidImage = "asteroid3.png";
+            for (int i = 0; i <= 4; i++)
+            {
+                e.Graphics.DrawImage(new Bitmap(asteroidImage), asteroidsHorizontal[i], asteroidsVertical[i], asteroidsHeightWidth[i],                  asteroidsHeightWidth[i]);
+            }
+        }
+        
+        
+ 
+Функции для генерации летающих тарелок, которые будут атаковать землю. 
+ 
+         private void AsteroidAlive()
+        {
+            for (int i = 0; i <= 4; i++)
+            {
+                asteroidAlive[i] = false;
+            }
+        }
+        private void AsteroidsGenerate(int i)
+        {
+            asteroidsHeightWidth[i] = GetRandom.Next(30, 130);
+            asteroidsHorizontal[i] = GetRandom.Next(1024, 1300);
+            asteroidsVertical[i] = GetRandom.Next(15, 548);
+            asteroidSpeed[i] = GetRandom.Next(4, 8);
+            asteroidAlive[i] = true;
+            int image = GetRandom.Next(1, 3);
+            asteroidImage = ("asteroid" + image + ".png").ToString();
+
+            asteroidsHorizontal[i] -= asteroidSpeed[i];
+        }
+        
+        
+        
+        
+ 
+ 
+ В начале игры появляется лейбл для очков.
+ 
+        private void FormDefendGame_Load(object sender, EventArgs e)
+        {
+            
+            label1.Text = "Очки: " + score.ToString();
+            
+        }
+        
+        
+ 
+ Функция для земли. Что бы земля не могла уходить за определенные границы.
+ 
+        private void SetSceneBorders()
+        {
+            if (earthHorizontal <= 10)
+            {
+                earthHorizontal = 11;
+            }
+            else if (earthHorizontal >= 200)
+            {
+                earthHorizontal = 198;
+            }
+            else if (earthVertical <= 10)
+            {
+                earthVertical = 15;
+            }
+            else if (earthVertical >= 480)
+            {
+                earthVertical = 478;
+            }
+        } 
+        
+        
+Функция для передвижения объектов в форме.        
+        
+         private void Timer1_Tick_1(object sender, EventArgs e)
+        {
+            Defeat();
+            for (int i = 0; i <= 4; i++)
+            {
+                if (asteroidAlive[i] == false)
+                {
+                    AsteroidsGenerate(i);
+
+                }
+                else
+                {
+                    asteroidsHorizontal[i] -= asteroidSpeed[i];
+                }
+            }
+
+            for (int i = 0; i <= 4; i++)
+            {
+                if (asteroidsHorizontal[i] < 0 - asteroidsHeightWidth[i])
+                {
+                    AsteroidsGenerate(i);
+                }
+                else if ((moonImage == "moon.png") && (moonHorizontal >= asteroidsHorizontal[i] - 30))
+                {
+                    if ((moonVertical >= asteroidsVertical[i] - 30) && (moonVertical <= asteroidsVertical[i] + asteroidsHeightWidth[i]))
+                    {
+                        moonAchievesGoal = true;
+                        asteroidAlive[i] = false;
+                        asteroidImage = "objectOff.png";
+                        AsteroidsGenerate(i);
+                        score += 1;
+                        label1.Text = "Очки: " + score.ToString();
+                    }
+                }
+            }
+
+
+
+
+            if ((moonHorizontal > 1024) || (moonAchievesGoal == true))
+            {
+                moonImage = "objectOff.png";
+                moonAchievesGoal = false;
+            }
+            else
+            {
+                moonHorizontal += 150;
+            }
+            Invalidate();
+        }  
+        
+        
+        
+        
+        
+  Функция для выхода из игры.             
+        
+        private void Exit()
+        {
+            DialogResult dialog = new DialogResult();
+            timer1.Enabled = false;
+            dialog = MessageBox.Show("Ты уверен?", "Закрыть игру", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
+            {
+                Close();
+            }
+            else
+            {
+                timer1.Enabled = true;
+            }
+        }
+        
+        
+        
+        
+ Функция при проигрыше. Которая спрашивает игрока, хочет ли он продолжить игру.
+ 
+        private void Defeat()
+        {
+            for (int i = 0; i <= 4; i++)
+            {
+                if (((earthHorizontal > asteroidsHorizontal[i] - 60)) && ((earthVertical > asteroidsVertical[i] - 60) && (earthVertical         < asteroidsVertical[i] + asteroidsHeightWidth[i])))
+                {
+                    if ((earthHorizontal < asteroidsHorizontal[i] + asteroidsHeightWidth[i]))
+                    {
+
+                        earth = "objectOff.png";
+                        timer1.Enabled = false;
+                        DialogResult dialog = new DialogResult();
+                        dialog = MessageBox.Show("Хочешь попробовать сыграть ещё?", "Твои очки: " + score, MessageBoxButtons.YesNo);
+
+                        if (dialog == DialogResult.Yes)
+                        {
+                            earthHorizontal = 30; earthVertical = 280;
+                            AsteroidsGenerate(i);
+                            earth = "Earth.png";
+                            score = 0;
+                            label1.Text = "Очки: " + score.ToString();
+                            for (i = 0; i <= 4; i++)
+                            {
+                                asteroidAlive[i] = false;
+                            }
+                            timer1.Enabled = true;
+                        }
+
+                        if (dialog == DialogResult.No)
+                        {
+                            Close();
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        
+       
+Управление землей.        
+        
+        private void FormDefendGame_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    earthHorizontal -= 7;
+                    Defeat();
+                    SetSceneBorders();
+                    break;
+                case Keys.Right:
+                    earthHorizontal += 7;
+                    Defeat();
+                    SetSceneBorders();
+                    break;
+                case Keys.Up:
+                    earthVertical -= 7;
+                    Defeat();
+                    SetSceneBorders();
+                    break;
+                case Keys.Down:
+                    earthVertical += 7;
+                    Defeat();
+                    SetSceneBorders();
+                    break;
+                case Keys.Escape:
+                    Exit();
+                    break;
+                case Keys.Space:
+                    if (moonHorizontal < 1024)
+                    {
+
+                    }
+                    else
+                    {
+                        moonHorizontal = earthHorizontal + 60;
+                        moonVertical = earthVertical + 15;
+                        moonImage = "moon.png";
+                    }
+                    break;
+            }
+        }
+        
+        
+     public FormDefendGame()
+        {
+            InitializeComponent();
+            AsteroidAlive();
+        }
+        
+        
+        
+        
+        
+        
+        
+  Форма с Теста.
+  
+  В начале создаются переменные для дальнейшего использования.
+  
+        public List<string> voprosi;
+        int num;
+        string vopros;
+        string potvet;
+        public int correct = 0;
+        public int incorrect = 0;
+        int randomm = 9;
+        public Random random = new Random();
+        int kolotvetov = 0;
+        
+        
+  
+  При загрузке формы, загружается лист с вопросами.
+  
+        public FormTest()
+        {
+            InitializeComponent();
+
+            voprosi = new List<string>() { "Какая по счету от Солнца планета Земля?", "Эта планета могла стать звездой, но не набрала           достаточно массы:", "Сколько спутников у Марса?",
+             "Солнце – типичный представитель этого класса звезд:","Ближайшая к Солнцу планета:","Сколько всего планет в Солнечной              системе?","Первооткрывателем законов движения планет Солнечной системы был:","Самая большая планета Солнечной системы?","Самый          большой спутник в Солнечной системе:"};
+        }
+        
+        
+        
+ Функция для кнопки "Начать игру".
+ 
+        private void buttonGameStart_Click(object sender, EventArgs e)
+        {
+            buttonGameStart.Visible = false;//кнопка начать игру пропадает
+            timer1.Enabled = true;//таймер начинаеться
+            num = random.Next(0, randomm);//береться рандомный индекс
+            vopros = voprosi[num];
+            label1.Text = voprosi[num];
+            voprosi.RemoveAt(num);//удаляеться вопрос
+            randomm -= 1;
+            num = 0;
+
+            switch (vopros)
+            {
+                case "Какая по счету от Солнца планета Земля?":
+                    radioButton1.Text = "первая";
+                    radioButton2.Text = "вторая";
+                    radioButton3.Text = "третья+";
+                    radioButton4.Text = "четвертая";
+                    potvet = "radioButton3";
+                    break;
+                case "Эта планета могла стать звездой, но не набрала достаточно массы:":
+                    radioButton1.Text = "Юпитер+";
+                    radioButton2.Text = "Меркурий";
+                    radioButton3.Text = "Нептун";
+                    radioButton4.Text = "Сатурн";
+                    potvet = "radioButton1";
+                    break;
+                case "Сколько спутников у Марса?":
+                    radioButton1.Text = "у Марса нет спутников";
+                    radioButton2.Text = "один спутник";
+                    radioButton3.Text = "два спутника+";
+                    radioButton4.Text = "пять спутников";
+                    potvet = "radioButton3";
+                    break;
+                case "Солнце – типичный представитель этого класса звезд:":
+                    radioButton1.Text = "желтый карлик+";
+                    radioButton2.Text = "белый карлик";
+                    radioButton3.Text = "красный гигант";
+                    radioButton4.Text = "пульсар";
+                    potvet = "radioButton1";
+                    break;
+                case "Ближайшая к Солнцу планета:":
+                    radioButton1.Text = "Земля";
+                    radioButton2.Text = "Юпитер";
+                    radioButton3.Text = "Марс";
+                    radioButton4.Text = "Меркурий+";
+                    potvet = "radioButton4";
+                    break;
+                case "Сколько всего планет в Солнечной системе?":
+                    radioButton1.Text = "шесть";
+                    radioButton2.Text = "семь";
+                    radioButton3.Text = "восемь+";
+                    radioButton4.Text = "девять";
+                    potvet = "radioButton3";
+                    break;
+                case "Первооткрывателем законов движения планет Солнечной системы был:":
+                    radioButton1.Text = "Николай Коперник";
+                    radioButton2.Text = "Иоганн Кеплер+";
+                    radioButton3.Text = "Джордано Бруно";
+                    radioButton4.Text = "Жак Кассини";
+                    potvet = "radioButton2";
+                    break;
+                case "Самая большая планета Солнечной системы?":
+                    radioButton1.Text = "Уран";
+                    radioButton2.Text = "Церера";
+                    radioButton3.Text = "Сатурн";
+                    radioButton4.Text = "Юпитер+";
+                    potvet = "radioButton4";
+                    break;
+                case "Самый большой спутник в Солнечной системе:":
+                    radioButton1.Text = "Ио";
+                    radioButton2.Text = "Ганимед+";
+                    radioButton3.Text = "Европа";
+                    radioButton4.Text = "Фобос";
+                    potvet = "radioButton2";
+                    break;
+            }
+        }
+        
+        
+        
+        
+ Функция для кнопки "Ответить".
+  
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+           
+            if (kolotvetov < 8)
+            {
+
+
+                kolotvetov++;
+                label5.Text = kolotvetov.ToString() + " / 8";
+                num = 0;
+                randomm -= 1;
+                num = random.Next(0, randomm);
+                if (radioButton1.Name == potvet && radioButton1.Checked)
+                {
+
+                   
+                    correct++;
+                    label2.Text = "Правильных ответов: " + correct.ToString();
+                    ffgf();
+
+                }
+                else if (radioButton2.Name == potvet && radioButton2.Checked)
+                {
+
+                    
+                    correct++;
+                    label2.Text = "Правильных ответов: " + correct.ToString();
+                    ffgf();
+                }
+                else if (radioButton3.Name == potvet && radioButton3.Checked)
+                {
+
+                    
+                    correct++;
+                    label2.Text = "Правильных ответов: " + correct.ToString();
+                    ffgf();
+
+                }
+                else if (radioButton4.Name == potvet && radioButton4.Checked)
+                {
+
+                    
+                    correct++;
+                    label2.Text = "Правильных ответов: " + correct.ToString();
+                    ffgf();
+
+                }
+                else
+                {
+                    incorrect++;
+                    ffgf();
+                }
+            }
+            else
+            {
+                
+                label1.Text = "konec";
+                timer1.Enabled = false;
+                SaveGame();
+            }
+
+        }
+        
+        
+        
+Функции для сохранения данных из игры в базу данных.        
+
+        protected virtual async Task SaveGame()
+        {
+            var command = new SqlCommand("UPDATE [Records] set CorrectAnswer = @correct where Name = @Name",
+                await MainFrm.GetSqlConnection());
+            command.Parameters.AddWithValue("correct", correct);
+            command.Parameters.AddWithValue("Name", MainFrm.UserId);
+            var command1 = new SqlCommand("UPDATE [Records] set IncorrectAnswer = @incorrect  where Name = @Name",
+                await MainFrm.GetSqlConnection());
+            command1.Parameters.AddWithValue("incorrect", incorrect);
+            command1.Parameters.AddWithValue("Name", MainFrm.UserId);
+
+            await command.ExecuteNonQueryAsync();
+            await command1.ExecuteNonQueryAsync();
+            Close();
+        }
+        private int _gameDurationSec;
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            _gameDurationSec += 1;
+
+            var t = TimeSpan.FromSeconds(_gameDurationSec);
+            var answer = $"{t.Hours:D2}:{t.Minutes:D2}:{t.Seconds:D2}";
+
+            labelTime.Text =  "Время: " + answer;
+        }
+        
+        
+        
+ Функция для перехода к следующему ответу и проверки ответов, были ли ответы правильные или нет.       
+    
+        public void ffgf()
+        {
+
+
+            vopros = voprosi[num];
+            label1.Text = vopros;
+            voprosi.RemoveAt(num);
+
+
+            switch (vopros)
+            {
+                case "Какая по счету от Солнца планета Земля?":
+                    radioButton1.Text = "первая";
+                    radioButton2.Text = "вторая";
+                    radioButton3.Text = "третья+";
+                    radioButton4.Text = "четвертая";
+                    potvet = "radioButton3";
+                    break;
+                case "Эта планета могла стать звездой, но не набрала достаточно массы:":
+                    radioButton1.Text = "Юпитер+";
+                    radioButton2.Text = "Меркурий";
+                    radioButton3.Text = "Нептун";
+                    radioButton4.Text = "Сатурн";
+                    potvet = "radioButton1";
+                    break;
+                case "Сколько спутников у Марса?":
+                    radioButton1.Text = "у Марса нет спутников";
+                    radioButton2.Text = "один спутник";
+                    radioButton3.Text = "два спутника+";
+                    radioButton4.Text = "пять спутников";
+                    potvet = "radioButton3";
+                    break;
+                case "Солнце – типичный представитель этого класса звезд:":
+                    radioButton1.Text = "желтый карлик+";
+                    radioButton2.Text = "белый карлик";
+                    radioButton3.Text = "красный гигант";
+                    radioButton4.Text = "пульсар";
+                    potvet = "radioButton1";
+                    break;
+                case "Ближайшая к Солнцу планета:":
+                    radioButton1.Text = "Земля";
+                    radioButton2.Text = "Юпитер";
+                    radioButton3.Text = "Марс";
+                    radioButton4.Text = "Меркурий+";
+                    potvet = "radioButton4";
+                    break;
+                case "Сколько всего планет в Солнечной системе?":
+                    radioButton1.Text = "шесть";
+                    radioButton2.Text = "семь";
+                    radioButton3.Text = "восемь+";
+                    radioButton4.Text = "девять";
+                    potvet = "radioButton3";
+                    break;
+                case "Первооткрывателем законов движения планет Солнечной системы был:":
+                    radioButton1.Text = "Николай Коперник";
+                    radioButton2.Text = "Иоганн Кеплер+";
+                    radioButton3.Text = "Джордано Бруно";
+                    radioButton4.Text = "Жак Кассини";
+                    potvet = "radioButton2";
+                    break;
+                case "Самая большая планета Солнечной системы?":
+                    radioButton1.Text = "Уран";
+                    radioButton2.Text = "Церера";
+                    radioButton3.Text = "Сатурн";
+                    radioButton4.Text = "Юпитер+";
+                    potvet = "radioButton4";
+                    break;
+                case "Самый большой спутник в Солнечной системе:":
+                    radioButton1.Text = "Ио";
+                    radioButton2.Text = "Ганимед+";
+                    radioButton3.Text = "Европа";
+                    radioButton4.Text = "Фобос";
+                    potvet = "radioButton2";
+                    break;
+            }
         }
